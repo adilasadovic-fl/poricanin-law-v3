@@ -49,11 +49,12 @@
   const list = $('#insightList');
   if (list) {
     const items = $$('.ins-row', list), count = $('#insCount'), empty = $('#insEmpty');
-    const state = { access: 'all', topic: 'all', q: '' };
+    const state = { access: 'all', category: 'all', topic: 'all', q: '' };
     const apply = () => {
       let n = 0;
       items.forEach(it => {
         const ok = (state.access === 'all' || it.dataset.access === state.access) &&
+                   (state.category === 'all' || it.dataset.category === state.category) &&
                    (state.topic === 'all' || it.dataset.topic === state.topic) &&
                    (!state.q || it.dataset.title.includes(state.q));
         it.hidden = !ok; if (ok) n++;
