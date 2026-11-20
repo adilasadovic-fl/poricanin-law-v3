@@ -7,62 +7,12 @@
       <span class="label">Contact</span>
       <h1 id="pageTitle">Schedule a <span class="caps">consultation</span></h1>
       <p class="lead">Tell us briefly about your business and the matter at hand. We respond within one business day, and every enquiry is treated confidentially.</p>
-      <div class="direct">
-        <a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a>
-        <a href="tel:+15188073458">518.807.3458</a>
-      </div>
-      <p class="book">Prefer to pick a time? <a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" target="_blank" rel="noopener">Book a consultation online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></p>
+      <nav class="ph-jump" aria-label="On this page"><a href="#contact">Write to us</a><a href="#offices">Our offices</a></nav>
     </div>
   </div>
 </section>
 
-<!-- ================= CONTACT (V1 elements restored: write-to-us ticker, consent) ================= -->
-<section class="contact on-page" id="form" aria-labelledby="formTitle">
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>Have a question? <em>Write to us.</em></span><span>Have a question? <em>Write to us.</em></span><span>Have a question? <em>Write to us.</em></span><span>Have a question? <em>Write to us.</em></span>
-    </div>
-  </div>
-  <div class="wrap contact-grid">
-    <div class="reveal">
-      <span class="label">Write to us</span>
-      <h2 class="thin" id="formTitle">Tell us about your business</h2>
-      <ul class="reassure" role="list">
-        <li><b>A reply within one business day</b>from an attorney, not an automated queue.</li>
-        <li><b>Confidential from the first message</b>Everything you share is treated in confidence.</li>
-        <li><b>A practical next step</b>In the first meeting we assess your situation and outline a way forward.</li>
-      </ul>
-    </div>
-    <!-- PROTOTYPE FORM: not connected to email or a CRM. Submitting validates the fields and then explains how to reach the firm. -->
-    <form id="contactForm" class="reveal" novalidate>
-      <div class="fields">
-        <div class="field"><label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" autocomplete="name" placeholder="Jane Smith" required aria-describedby="e-name"><span class="err" id="e-name">Please enter your name.</span></div>
-        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization" placeholder="Company name"></div>
-        <div class="field"><label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(000) 000-0000" required aria-describedby="e-phone"><span class="err" id="e-phone">Please enter a phone number.</span></div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" aria-describedby="e-email"><span class="err" id="e-email">Please enter a valid email address.</span></div>
-        <div class="field full"><label for="f-area">Legal service <span class="req" aria-hidden="true">*</span></label>
-          <select id="f-area" name="service" required aria-describedby="e-area">
-            <option value="" selected disabled>Select a legal service</option>
-            <option>Outside General Counsel &amp; Business Advisory</option>
-            <option>Labor &amp; Employment Law</option>
-            <option>Litigation &amp; Dispute Resolution</option>
-            <option>Regulatory Compliance &amp; Government Investigations</option>
-            <option>Corporate Transactions &amp; Commercial Contracts</option>
-            <option>Workplace Advisory &amp; Risk Management</option>
-            <option>Not sure / other</option>
-          </select><span class="err" id="e-area">Please choose a legal service.</span></div>
-        <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Briefly describe the matter and your timeline."></textarea></div>
-      </div>
-      <label class="consent" id="consentWrap"><input type="checkbox" id="f-consent" name="consent" required aria-describedby="e-consent"> <span>I agree to the <a href="https://www.poricaninlaw.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> and understand that contacting the firm does not create an attorney-client relationship.</span></label>
-      <p class="consent-err" id="e-consent">Please confirm you have read the Privacy Policy.</p>
-      <div class="form-foot">
-        <p>* Required</p>
-        <button type="submit" class="btn">Schedule a consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
-      </div>
-      <div class="form-ok" id="formOk" role="status" tabindex="-1"><b>This form is a preview and is not connected yet, so your message has not been sent.</b> Please email <a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a>, call <a href="tel:+15188073458">518.807.3458</a> or <a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" target="_blank" rel="noopener">book online</a>.</div>
-    </form>
-  </div>
-</section>
+{{> contact-form}}
 
 <!-- ================= OFFICES ================= -->
 <section aria-labelledby="officesTitle">

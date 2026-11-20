@@ -64,18 +64,19 @@
     apply();
   }
 
-  // contact form (prototype: validates, then says plainly that nothing was sent)
+  // contact form, V1 style (prototype: validates, then says plainly that nothing was sent)
   const form = $('#contactForm');
   if (form) {
-    const consent = $('#f-consent'), cw = $('#consentWrap');
+    const consent = $('#f-consent'), cw = $('#consentWrap'), area = $('#f-area');
+    area.addEventListener('change', () => area.classList.add('chosen'));
     form.addEventListener('submit', e => {
       e.preventDefault(); let first = null;
-      $$('.field', form).forEach(f => { const el = $('input,select,textarea', f); const bad = el && !el.checkValidity(); f.classList.toggle('invalid', bad); el && el.setAttribute('aria-invalid', bad); if (bad && !first) first = el; });
+      $$('.uf-field', form).forEach(f => { const el = $('input,select,textarea', f); const bad = el && !el.checkValidity(); f.classList.toggle('invalid', bad); el && el.setAttribute('aria-invalid', bad); if (bad && !first) first = el; });
       const cBad = !consent.checked; cw.classList.toggle('invalid', cBad); consent.setAttribute('aria-invalid', cBad); if (cBad && !first) first = consent;
       if (first) { first.focus(); return; }
       const ok = $('#formOk'); ok.style.display = 'block'; ok.focus();
     });
-    form.addEventListener('input', e => { const f = e.target.closest('.field'); if (f && e.target.checkValidity()) f.classList.remove('invalid'); });
+    form.addEventListener('input', e => { const f = e.target.closest('.uf-field'); if (f && e.target.checkValidity()) f.classList.remove('invalid'); });
     consent.addEventListener('change', () => { if (consent.checked) cw.classList.remove('invalid'); });
   }
 })();

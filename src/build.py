@@ -15,6 +15,7 @@ Each page is wrapped as: partials/head.html, partials/header.html, <main> page <
 partials/cta.html, partials/footer.html.
 
 Placeholders:
+    {{> name}}       insert src/partials/name.html (for example {{> contact-form}})
     {{image.webp}}   a file in src/assets/  ->  src/assets/image.webp
     {{=name}}        a page setting (title, description, ...)
     {{nav:key}}      becomes aria-current="page" on the link for the current page
@@ -49,6 +50,7 @@ for page in pages:
     if meta['preload']:
         meta['preload'] = f'<link rel="preload" as="image" href="src/assets/{meta["preload"]}" fetchpriority="high">'
 
+    body = re.sub(r'\{\{> ([\w-]+)\}\}', lambda n: partial[n.group(1)], body)
     html = (partial['head'] + partial['header'] + '<main id="top">\n<span id="main"></span>\n' + body.strip() + '\n'
             + (partial['cta'] if meta['cta'] else '') + '</main>\n\n' + partial['footer'])
 

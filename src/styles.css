@@ -642,3 +642,48 @@ a.hl:hover img{filter:grayscale(.1);transform:scale(1.06)}
 .reassure{list-style:none;margin-top:28px;border-top:1px solid var(--line)}
 .reassure li{padding:18px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--muted)}
 .reassure b{display:block;color:var(--text);font-weight:500;font-size:15.5px;margin-bottom:4px}
+
+/* ---------- write to us: contact form in the V1 style ---------- */
+.write{background:var(--black);color:var(--white);padding:clamp(72px,8vw,120px) 0 clamp(72px,8vw,112px);overflow:hidden;scroll-margin-top:84px}
+.w-ticker{overflow:hidden;padding:10px 0 clamp(48px,6vw,80px)}
+.w-ticker-track{display:flex;width:max-content;animation:ticker 32s linear infinite}
+.w-ticker-track span{display:flex;align-items:center;gap:.45em;padding-right:.45em;white-space:nowrap;font-size:clamp(60px,10vw,160px);font-weight:500;letter-spacing:-.05em;line-height:1}
+.w-ticker-track span em{font-style:normal;color:var(--green)}
+.w-ticker-track span::after{content:"";width:.14em;height:.14em;border-radius:50%;background:var(--green)}
+.write-grid{display:grid;grid-template-columns:.8fr 2fr;gap:clamp(32px,5vw,80px);border-top:1px solid var(--line-dark);padding-top:36px}
+.write-intro{color:var(--muted-dark);font-size:15px;max-width:32ch}
+.w-direct{margin-top:28px;display:grid;gap:6px}
+.w-direct a{color:var(--white);font-size:18px;text-decoration:underline;text-decoration-color:var(--line-dark);text-underline-offset:6px;padding:4px 0;transition:text-decoration-color .2s,color .2s;overflow-wrap:anywhere}
+.w-direct a:hover{color:var(--green);text-decoration-color:var(--green)}
+.w-book{margin-top:22px;font-size:14px}
+.w-book a{display:inline-flex;align-items:center;gap:6px;color:var(--white);font-weight:500;padding:6px 0}
+.w-book a:hover{color:var(--green)}
+.w-book svg{width:14px;height:14px}
+.uf{display:grid;grid-template-columns:1fr 1fr;gap:8px 40px;min-width:0}
+.uf .full{grid-column:1/-1}
+.uf-field{position:relative;min-width:0}
+.uf-field input,.uf-field select,.uf-field textarea{width:100%;min-width:0;background:transparent;border:0;border-bottom:1px solid #3A3D3B;color:var(--white);font:inherit;font-size:clamp(19px,1.8vw,26px);font-weight:300;letter-spacing:-.01em;padding:26px 0 14px;border-radius:0;-webkit-appearance:none;appearance:none;transition:border-color .25s}
+.uf-field select{color:#8C8F8C;cursor:pointer;text-overflow:ellipsis;padding-right:28px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%238C8F8C' stroke-width='1.5'%3E%3Cpath d='M1 1l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 4px center}
+.uf-field select.chosen{color:var(--white)}
+.uf-field select option{color:#000}
+.uf-field textarea{min-height:150px;resize:vertical}
+.uf-field ::placeholder{color:#8C8F8C}
+.uf-field input:focus,.uf-field select:focus,.uf-field textarea:focus{outline:none;border-bottom-color:var(--green)}
+.uf-field input:focus-visible,.uf-field select:focus-visible,.uf-field textarea:focus-visible{box-shadow:0 2px 0 0 var(--green)}
+.uf-field .err,.agree-err{display:none;font-size:13px;color:#FF8A80;margin-top:6px}
+.uf-field.invalid input,.uf-field.invalid select{border-bottom-color:#FF8A80}
+.uf-field.invalid .err{display:block}
+.agree{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted-dark);cursor:pointer;padding:6px 0}
+.agree input{appearance:none;-webkit-appearance:none;width:20px;height:20px;border:1px solid #6A6D6A;display:grid;place-items:center;flex:none;cursor:pointer;transition:background .2s,border-color .2s}
+.agree input:checked{background:var(--green);border-color:var(--green)}
+.agree input:checked::after{content:"";width:10px;height:5px;border-left:2px solid var(--black);border-bottom:2px solid var(--black);transform:rotate(-45deg) translate(1px,-1px)}
+.agree a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+.agree.invalid input{border-color:#FF8A80}
+.agree.invalid+.agree-err{display:block}
+.uf-foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:28px}
+.uf-foot small{display:block;font-size:12.5px;color:#8C8F8C;margin-top:4px}
+.write .form-ok{grid-column:1/-1;margin-top:8px;padding:16px 18px;border-left:2px solid var(--green);background:rgba(61,203,134,.08);font-size:14.5px;color:var(--white)}
+.write .form-ok a{color:var(--green)}
+@media (max-width:900px){.write-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.uf{grid-template-columns:1fr}.uf-foot .btn{width:100%}}
+@media (prefers-reduced-motion:reduce){.w-ticker-track{animation:none}}
