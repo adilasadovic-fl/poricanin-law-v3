@@ -12,7 +12,7 @@ src/assets to preload, for pages whose first screen is that image), bodyclass, c
 out the shared closing call-to-action).
 
 Each page is wrapped as: partials/head.html, partials/header.html, <main> page </main>,
-partials/cta.html, partials/footer.html.
+partials/cta.html, partials/footer.html, then the scheduler dialog (partials/scheduler.html) before </body>.
 
 Placeholders:
     {{> name}}       insert src/partials/name.html (for example {{> contact-form}})
@@ -52,7 +52,7 @@ for page in pages:
 
     body = re.sub(r'\{\{> ([\w-]+)\}\}', lambda n: partial[n.group(1)], body)
     html = (partial['head'] + partial['header'] + '<main id="top">\n<span id="main"></span>\n' + body.strip() + '\n'
-            + (partial['cta'] if meta['cta'] else '') + '</main>\n\n' + partial['footer'])
+            + (partial['cta'] if meta['cta'] else '') + '</main>\n\n' + partial['footer'].replace('</body>', partial['scheduler'] + '</body>'))
 
     html = re.sub(r'\{\{nav:(\w+)\}\}', lambda n: ' aria-current="page"' if n.group(1) == meta['nav'] else '', html)
     html = re.sub(r'\{\{=(\w+)\}\}', lambda n: str(meta.get(n.group(1), '')), html)

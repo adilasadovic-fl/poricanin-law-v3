@@ -32,7 +32,7 @@
     </nav>
     <div class="head-right">
       <a href="https://www.poricaninlaw.com/myaccount/" class="client">Client Area</a>
-      <a href="contact.html" class="btn btn-light">Schedule a consultation</a>
+      <a href="contact.html" class="btn btn-light" data-schedule>Schedule a consultation</a>
     </div>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
   </div>
@@ -40,7 +40,7 @@
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
   <a href="index.html">Home</a><a href="about.html">About us</a><a href="practice-areas.html">Practice areas</a><a href="sectors.html">Sectors</a><a href="results.html">Results</a><a href="insights.html">Insights</a><a href="contact.html">Contact</a>
   <a href="https://www.poricaninlaw.com/myaccount/" class="small">Client Area</a>
-  <a href="contact.html" class="btn btn-green">Schedule a consultation</a>
+  <a href="contact.html" class="btn btn-green" data-schedule>Schedule a consultation</a>
 </nav>
 <main id="top">
 <span id="main"></span>
@@ -100,7 +100,7 @@
       <div class="group-head reveal"><span class="label">Sector</span><h2>Human Services &amp; Nonprofit Organizations</h2><p>Human services providers and nonprofit organizations, many with large workforces and Medicaid-funded programs.</p><a href="contact.html" class="btn btn-dark find-more">Talk to us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
       <div class="sector-cols reveal">
         <div><h3>Who we serve</h3><ul role="list"><li>Human services providers</li><li>Nonprofit organizations</li></ul></div>
-        <div><h3>Typical matters</h3><ul role="list"><li><a href="practice-areas.html#governance" class="inline-plain">Nonprofit governance</a></li><li><a href="practice-areas.html#outsourced-hr" class="inline-plain">Day-to-day employment and HR counsel for large workforces</a></li><li><a href="practice-areas.html#medicaid-medicare" class="inline-plain">Medicaid program compliance</a></li><li><a href="practice-areas.html#investigations" class="inline-plain">Workplace investigations</a></li></ul><p class="note">Human services providers are listed on the firm’s healthcare page, and nonprofit governance on its home care page.</p></div>
+        <div><h3>Typical matters</h3><ul role="list"><li><a href="practice-areas.html#governance" class="inline-plain">Nonprofit governance</a></li><li><a href="practice-areas.html#outsourced-hr" class="inline-plain">Day-to-day employment and HR counsel for large workforces</a></li><li><a href="practice-areas.html#medicaid-medicare" class="inline-plain">Medicaid program compliance</a></li><li><a href="practice-areas.html#investigations" class="inline-plain">Workplace investigations</a></li></ul></div>
       </div>
     </div>
   </div>
@@ -112,7 +112,7 @@
     <p class="note reveal">Schedule a consultation by phone, email or our contact form. In the first meeting we assess your situation and outline a practical way forward.</p>
     <h2 class="reveal">Talk to us about<br>your business today.</h2>
     <div class="act reveal">
-      <a href="contact.html" class="btn btn-green">Schedule a consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      <a href="contact.html" class="btn btn-green" data-schedule>Schedule a consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
       <a href="tel:+15188073458" class="btn btn-light">518.807.3458</a>
     </div>
   </div>
@@ -129,7 +129,7 @@
     <div class="footer-main">
       <div>
         <h2 class="h5">Contact</h2>
-        <ul><li><a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a></li><li><a href="tel:+15188073458">518.807.3458</a></li><li><a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" target="_blank" rel="noopener">Book a consultation online</a></li></ul>
+        <ul><li><a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a></li><li><a href="tel:+15188073458">518.807.3458</a></li><li><a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" data-schedule>Book a consultation online</a></li></ul>
       </div>
       <div><h2 class="h5">Firm</h2><ul><li><a href="about.html">About us</a></li><li><a href="about.html#team">Our people</a></li><li><a href="practice-areas.html">Practice areas</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="results.html">Results</a></li></ul></div>
       <div><h2 class="h5">Resources</h2><ul><li><a href="insights.html">Insights</a></li><li><a href="https://www.poricaninlaw.com/premium-articles-monthly/">Premium articles</a></li><li><a href="results.html#feedback">Client feedback</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://www.poricaninlaw.com/myaccount/">Client area</a></li></ul></div>
@@ -140,5 +140,68 @@
     </div>
   </div>
 </footer>
+<!-- ================= SCHEDULER: consultation booking dialog, opened by any [data-schedule] link =================
+     Ported from the previous Poricanin Law site. Weekdays only, 30-minute slots from 9:00 to 17:30 ET, up to 60 days ahead.
+     PROTOTYPE: it does not read the firm's calendar. "Request this time" opens the visitor's email app with the request
+     addressed to the firm; the firm confirms by email. Without JavaScript the links go to the Outlook booking page. -->
+<dialog class="sched" id="sched" aria-labelledby="schedTitle">
+  <div class="sched-panel">
+    <aside class="sched-info">
+      <img class="sched-logo" src="src/assets/poricanin-wordmark-white.png" alt="Poricanin Law" width="118" height="21">
+      <h2 id="schedTitle">Consultation meeting</h2>
+      <ul class="sched-facts" role="list">
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l2.5 2.5"/></svg>30 minutes</li>
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h7A1.5 1.5 0 0 1 13 6.5v7a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 3 13.5zM13 8.5l4-2.5v8l-4-2.5"/></svg>Video or phone call</li>
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M2 10h16M10 2c2.2 2.2 3.3 4.9 3.3 8s-1.1 5.8-3.3 8c-2.2-2.2-3.3-4.9-3.3-8S7.8 4.2 10 2z"/></svg>Eastern Time (New York)</li>
+      </ul>
+      <p class="sched-picked" id="schedPicked" hidden></p>
+      <p class="sched-note">Monday to Friday, 9:00 AM to 6:00 PM. Prefer to call? <a href="tel:+15188073458">518.807.3458</a></p>
+    </aside>
+
+    <div class="sched-pick" id="schedPick">
+      <div class="sched-cal">
+        <div class="sched-month">
+          <p id="schedMonth" aria-live="polite"></p>
+          <div>
+            <button type="button" id="schedPrev" aria-label="Previous month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button type="button" id="schedNext" aria-label="Next month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+        <div class="sched-wds" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+        <div class="sched-grid" id="schedGrid" role="group" aria-label="Choose a date"></div>
+      </div>
+      <div class="sched-slots">
+        <div class="sched-slots-head">
+          <p id="schedDay" tabindex="-1"><b>Pick a date</b></p>
+          <div class="sched-toggle" role="group" aria-label="Time format"><button type="button" data-h24="0" aria-pressed="true">12h</button><button type="button" data-h24="1" aria-pressed="false">24h</button></div>
+        </div>
+        <p class="sched-hint" id="schedHint">Choose a weekday to see times.</p>
+        <ul class="sched-times" id="schedSlots" role="list"></ul>
+      </div>
+    </div>
+
+    <div class="sched-details" id="schedDetails" hidden>
+      <button type="button" class="sched-back" id="schedBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 12H4M10 6l-6 6 6 6"/></svg>Back to times</button>
+      <form class="sched-form" id="schedForm" novalidate>
+        <p class="sched-h" id="schedFormTitle" tabindex="-1">Your details</p>
+        <div class="sf"><label for="s-name">Full name <i aria-hidden="true">*</i><span class="sr-only">(required)</span></label><input id="s-name" name="name" autocomplete="name" required aria-describedby="se-name"><span class="err" id="se-name">Please enter your name.</span></div>
+        <div class="sf"><label for="s-company">Company</label><input id="s-company" name="company" autocomplete="organization"></div>
+        <div class="sf"><label for="s-email">Email <i aria-hidden="true">*</i><span class="sr-only">(required)</span></label><input id="s-email" name="email" type="email" autocomplete="email" required aria-describedby="se-email"><span class="err" id="se-email">Please enter an email address, like name@company.com.</span></div>
+        <div class="sf"><label for="s-phone">Phone</label><input id="s-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9+().\s\-]{7,}" aria-describedby="se-phone"><span class="err" id="se-phone">Please use digits only, for example 518 807 3458.</span></div>
+        <div class="sf full"><label for="s-notes">What would you like to discuss?</label><textarea id="s-notes" name="notes" rows="3"></textarea></div>
+        <div class="sf-foot full">
+          <button type="submit" class="btn btn-green">Request this time <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <p>We confirm the time with you by email within one business day.</p>
+        </div>
+      </form>
+      <div class="sched-sent" id="schedSent" role="status" tabindex="-1" hidden>
+        <p class="sched-h">Almost done.</p>
+        <p>Your email app should have opened with the request. Send it and we will confirm the time with you by email. Nothing opened? Write to <a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a> or call <a href="tel:+15188073458">518.807.3458</a>.</p>
+      </div>
+    </div>
+
+    <button type="button" class="sched-close" id="schedClose" aria-label="Close scheduler"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  </div>
+</dialog>
 </body>
 </html>

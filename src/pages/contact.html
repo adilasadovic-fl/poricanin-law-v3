@@ -1,28 +1,38 @@
-<!--page {"title": "Contact | Poricanin Law", "description": "Schedule a consultation with Poricanin Law. Offices in New York City, Albany and Buffalo; serving businesses with operations across the United States and internationally.", "nav": "contact", "bodyclass": "solid-header", "preload": "office-nyc.webp", "cta": false} -->
-<!-- ================= PAGE HERO ================= -->
-<section class="page-hero" aria-labelledby="pageTitle">
-  <div class="ph-grid">
-    <div class="ph-img"><img src="{{office-nyc.webp}}" alt="" width="640" height="288"></div>
-    <div class="ph-text">
-      <span class="label">Contact</span>
-      <h1 id="pageTitle">Schedule a <span class="caps">consultation</span></h1>
-      <p class="lead">Tell us briefly about your business and the matter at hand. We respond within one business day, and every enquiry is treated confidentially.</p>
-      <nav class="ph-jump" aria-label="On this page"><a href="#contact">Write to us</a><a href="#offices">Our offices</a></nav>
+<!--page {"title": "Contact | Poricanin Law", "description": "Contact Poricanin Law or pick a consultation time. Offices in New York City, Albany and Buffalo; serving businesses with operations across the United States and internationally.", "nav": "contact", "bodyclass": "", "preload": "city-lights.webp", "cta": false} -->
+<!-- ================= CONTACT HERO: the enquiry form sits on the first screen ================= -->
+<section class="c-hero" id="contact" aria-labelledby="pageTitle">
+  <div class="c-bg" aria-hidden="true"><img src="{{city-lights.webp}}" alt="" width="1800" height="1200" fetchpriority="high"></div>
+  <div class="wrap">
+    <div class="c-head">
+      <p class="c-crumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Contact</span></p>
+      <h1 id="pageTitle">Contact us</h1>
     </div>
+    {{> contact-form}}
+    <a href="#offices" class="c-scroll">Scroll for office locations <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg></a>
   </div>
 </section>
 
-{{> contact-form}}
-
 <!-- ================= OFFICES ================= -->
-<section aria-labelledby="officesTitle">
+<section class="c-offices" aria-labelledby="officesTitle">
   <div class="wrap">
-    <div class="office-cards" id="offices">
-      <h2 class="sr-only" id="officesTitle">Our offices</h2>
-      <article class="office-card reveal"><div class="ph"><img src="{{office-nyc.webp}}" alt="Manhattan skyline, New York City" loading="lazy" decoding="async"></div><b>New York City</b><p>434 W. 33rd Street, 10th Floor<br>New York, NY 10001</p></article>
-      <article class="office-card reveal"><div class="ph"><img src="{{office-albany.webp}}" alt="Albany, New York" loading="lazy" decoding="async"></div><b>Albany</b><p>90 State Street, Suite 700<br>Albany, NY 12207</p></article>
-      <article class="office-card reveal"><div class="ph"><img src="{{office-buffalo.webp}}" alt="Buffalo, New York" loading="lazy" decoding="async"></div><b>Buffalo</b><p>50 Fountain Plaza, Suite 1400<br>Buffalo, NY 14202</p></article>
+    <h2 class="kick c-oh" id="officesTitle">/ Offices</h2>
+    <div class="oc-grid" id="offices">
+      <article class="oc reveal">
+        <div class="ph"><img src="{{office-nyc.webp}}" alt="Manhattan skyline, New York City" loading="lazy" decoding="async" width="640" height="288"></div>
+        <div class="oc-body"><h3>New York City</h3><p>434 W. 33rd Street, 10th Floor<br>New York, NY 10001</p><a class="oc-map" href="https://www.google.com/maps/search/?api=1&amp;query=434+W+33rd+Street+New+York+NY+10001" target="_blank" rel="noopener">Google Maps<span class="sr-only"> (New York City office, opens in a new tab)</span></a></div>
+        <div class="oc-row"><a href="tel:+15188073458"><span aria-hidden="true">P</span>518.807.3458</a><a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" data-schedule><span aria-hidden="true">→</span>Book a time</a></div>
+      </article>
+      <article class="oc reveal">
+        <div class="ph"><img src="{{office-albany.webp}}" alt="Albany, New York" loading="lazy" decoding="async" width="640" height="427"></div>
+        <div class="oc-body"><h3>Albany</h3><p>90 State Street, Suite 700<br>Albany, NY 12207</p><a class="oc-map" href="https://www.google.com/maps/search/?api=1&amp;query=90+State+Street+Albany+NY+12207" target="_blank" rel="noopener">Google Maps<span class="sr-only"> (Albany office, opens in a new tab)</span></a></div>
+        <div class="oc-row"><a href="tel:+15188073458"><span aria-hidden="true">P</span>518.807.3458</a><a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" data-schedule><span aria-hidden="true">→</span>Book a time</a></div>
+      </article>
+      <article class="oc reveal">
+        <div class="ph"><img src="{{office-buffalo.webp}}" alt="Buffalo, New York" loading="lazy" decoding="async" width="640" height="960"></div>
+        <div class="oc-body"><h3>Buffalo</h3><p>50 Fountain Plaza, Suite 1400<br>Buffalo, NY 14202</p><a class="oc-map" href="https://www.google.com/maps/search/?api=1&amp;query=50+Fountain+Plaza+Buffalo+NY+14202" target="_blank" rel="noopener">Google Maps<span class="sr-only"> (Buffalo office, opens in a new tab)</span></a></div>
+        <div class="oc-row"><a href="tel:+15188073458"><span aria-hidden="true">P</span>518.807.3458</a><a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" data-schedule><span aria-hidden="true">→</span>Book a time</a></div>
+      </article>
     </div>
-    <p class="admit" style="border-color:var(--line);color:var(--muted);margin-top:0;margin-bottom:clamp(64px,7vw,96px)"><b style="color:var(--text)">Notices &amp; communications:</b> 52 Madeleine Lane, Glenmont, NY 12077</p>
+    <p class="c-notice"><b>Notices &amp; communications:</b> 52 Madeleine Lane, Glenmont, NY 12077</p>
   </div>
 </section>

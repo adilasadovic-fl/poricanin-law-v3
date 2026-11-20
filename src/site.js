@@ -80,4 +80,95 @@
     form.addEventListener('input', e => { const f = e.target.closest('.uf-field'); if (f && e.target.checkValidity()) f.classList.remove('invalid'); });
     consent.addEventListener('change', () => { if (consent.checked) cw.classList.remove('invalid'); });
   }
+
+  // scheduler: any [data-schedule] link opens the booking dialog (links fall back to their href without JS)
+  const dlg = $('#sched');
+  if (dlg && typeof dlg.showModal === 'function') {
+    const EMAIL = 'hello@poricaninlaw.com';
+    const SLOTS = Array.from({ length: 18 }, (_, i) => 540 + 30 * i);           // 9:00 to 17:30, every 30 minutes
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const last = new Date(today); last.setDate(last.getDate() + 60);           // bookable up to 60 days ahead
+    const fmtDate = (d, o) => d.toLocaleDateString('en-US', o);
+    const fmtTime = (m, h24) => { const h = Math.floor(m / 60), mm = String(m % 60).padStart(2, '0'); return h24 ? `${String(h).padStart(2, '0')}:${mm}` : `${(h + 11) % 12 + 1}:${mm}${h < 12 ? 'am' : 'pm'}`; };
+    const sameDay = (a, b) => a && b && a.toDateString() === b.toDateString();
+    const bookable = d => d > today && d <= last && d.getDay() !== 0 && d.getDay() !== 6;
+    const st = { month: new Date(today.getFullYear(), today.getMonth(), 1), day: null, slot: null, h24: false, opener: null };
+    const grid = $('#schedGrid'), slotsEl = $('#schedSlots'), hint = $('#schedHint'), dayEl = $('#schedDay');
+    const pick = $('#schedPick'), details = $('#schedDetails'), picked = $('#schedPicked'), sform = $('#schedForm'), sent = $('#schedSent');
+
+    const renderMonth = () => {
+      const y = st.month.getFullYear(), m = st.month.getMonth();
+      $('#schedMonth').innerHTML = `<b>${fmtDate(st.month, { month: 'long' })}</b> ${y}`;
+      $('#schedPrev').disabled = y === today.getFullYear() && m === today.getMonth();
+      $('#schedNext').disabled = new Date(y, m + 1, 1) > last;
+      grid.innerHTML = '';
+      for (let i = 0; i < new Date(y, m, 1).getDay(); i++) grid.append(document.createElement('span'));
+      for (let n = 1; n <= new Date(y, m + 1, 0).getDate(); n++) {
+        const d = new Date(y, m, n), b = document.createElement('button');
+        b.type = 'button'; b.className = 'sched-day' + (bookable(d) ? ' on' : '') + (sameDay(d, today) ? ' today' : '');
+        b.textContent = n; b.disabled = !bookable(d);
+        b.setAttribute('aria-label', fmtDate(d, { weekday: 'long', month: 'long', day: 'numeric' }) + (sameDay(d, today) ? ', today' : ''));
+        b.setAttribute('aria-pressed', String(sameDay(d, st.day)));
+        b.addEventListener('click', () => { st.day = d; st.slot = null; renderMonth(); renderSlots(); if (matchMedia('(max-width:720px)').matches) dayEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); dayEl.focus({ preventScroll: true }); });
+        grid.append(b);
+      }
+    };
+    const renderSlots = () => {
+      slotsEl.innerHTML = '';
+      hint.hidden = !!st.day;
+      dayEl.innerHTML = st.day ? `<b>${fmtDate(st.day, { weekday: 'short' })}</b> ${st.day.getDate()} ${fmtDate(st.day, { month: 'short' })}` : '<b>Pick a date</b>';
+      if (!st.day) return;
+      SLOTS.forEach(s => {
+        const li = document.createElement('li'), b = document.createElement('button');
+        b.type = 'button'; b.className = 'sched-time'; b.textContent = fmtTime(s, st.h24);
+        b.setAttribute('aria-label', `${fmtTime(s, st.h24)} Eastern Time, ${fmtDate(st.day, { weekday: 'long', month: 'long', day: 'numeric' })}`);
+        b.addEventListener('click', () => { st.slot = s; showDetails(); });
+        li.append(b); slotsEl.append(li);
+      });
+    };
+    const when = () => `${fmtDate(st.day, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} at ${fmtTime(st.slot, false)} ET`;
+    const showDetails = () => {
+      picked.innerHTML = `${fmtDate(st.day, { weekday: 'long', month: 'long', day: 'numeric' })}<br>${fmtTime(st.slot, st.h24)} ET`;
+      picked.hidden = false; pick.hidden = true; details.hidden = false; sform.hidden = false; sent.hidden = true;
+      $('#schedFormTitle').focus();
+    };
+    const showPick = () => { picked.hidden = true; details.hidden = true; pick.hidden = false; st.slot = null; dayEl.focus(); };
+    $$('.sched-toggle button').forEach(b => b.addEventListener('click', () => {
+      st.h24 = b.dataset.h24 === '1';
+      $$('.sched-toggle button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+      renderSlots();
+    }));
+    $('#schedPrev').addEventListener('click', () => { st.month = new Date(st.month.getFullYear(), st.month.getMonth() - 1, 1); renderMonth(); });
+    $('#schedNext').addEventListener('click', () => { st.month = new Date(st.month.getFullYear(), st.month.getMonth() + 1, 1); renderMonth(); });
+    $('#schedBack').addEventListener('click', showPick);
+
+    sform.addEventListener('submit', e => {
+      e.preventDefault(); let first = null;
+      $$('.sf', sform).forEach(f => { const el = $('input,textarea', f); const bad = !el.checkValidity(); f.classList.toggle('invalid', bad); el.setAttribute('aria-invalid', bad); if (bad && !first) first = el; });
+      if (first) { first.focus(); return; }
+      const v = k => (sform.elements[k].value || '').trim();
+      const body = [`Requested time: ${when()}`, '', `Name: ${v('name')}`, `Company: ${v('company')}`, `Email: ${v('email')}`, `Phone: ${v('phone')}`, '', v('notes')].join('\n');
+      location.href = `mailto:${EMAIL}?subject=${encodeURIComponent('Consultation request: ' + when())}&body=${encodeURIComponent(body)}`;
+      sform.hidden = true; sent.hidden = false; sent.focus();
+    });
+    sform.addEventListener('input', e => { const f = e.target.closest('.sf'); if (f && e.target.checkValidity()) f.classList.remove('invalid'); });
+
+    const open = opener => {
+      st.opener = opener;
+      setMenu(false);
+      if (!sent.hidden) { st.day = null; st.slot = null; sform.reset(); picked.hidden = true; details.hidden = true; pick.hidden = false; }
+      renderMonth(); renderSlots();
+      dlg.showModal(); document.documentElement.classList.add('sched-lock');
+      ($('.sched-day.on', grid) || $('#schedClose')).focus();
+    };
+    const close = () => dlg.close();
+    dlg.addEventListener('close', () => { document.documentElement.classList.remove('sched-lock'); if (st.opener) st.opener.focus(); });
+    dlg.addEventListener('click', e => { if (e.target === dlg) close(); });
+    $('#schedClose').addEventListener('click', close);
+    document.addEventListener('click', e => {
+      const a = e.target.closest('[data-schedule]');
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault(); open(a);
+    });
+  }
 })();
