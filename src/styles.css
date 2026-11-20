@@ -928,7 +928,7 @@ html.sched-lock{overflow:hidden}
   .mn-body{flex:1 0 auto;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);border-top:1px solid var(--line)}
   .mn-main{display:flex;flex-direction:column;gap:48px;padding:clamp(36px,7vh,80px) 40px 36px 0}
   .mn-links{margin-block:auto;display:flex;flex-direction:column}
-  .mn-links a{width:fit-content;font-size:clamp(38px,6.2vw,68px);font-weight:300;line-height:1.16;letter-spacing:-.035em;transition:color .2s,transform .3s var(--ease)}
+  .mn-links a{width:fit-content;font-size:clamp(38px,min(6.2vw,6.6vh),68px);font-weight:300;line-height:1.16;letter-spacing:-.035em;transition:color .2s,transform .3s var(--ease)}
   .mn-links a:hover{color:var(--green-ink);transform:translateX(6px)}
   .mn-links a[aria-current]{color:var(--green-ink)}
   .mn-foot{display:grid;grid-template-columns:repeat(2,max-content);gap:10px 48px;font-size:15px}
