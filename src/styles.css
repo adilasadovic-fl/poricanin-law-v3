@@ -510,7 +510,6 @@ a.pa{color:inherit}
 .value::before{content:"";position:absolute;left:-1px;top:-1px;height:3px;width:calc(100% + 1px);background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
 .value:hover::before{transform:scaleX(1)}
 .value h3{display:flex;justify-content:space-between;align-items:center;font-size:clamp(20px,1.7vw,24px);font-weight:400;letter-spacing:-.015em}
-.value h3 svg{width:24px;height:24px;color:var(--green-ink)}
 .value p{margin-top:14px;font-size:15px;color:var(--muted);max-width:52ch}
 .approach{background:radial-gradient(ellipse 60% 90% at 100% 100%,rgba(31,122,82,.55),transparent 65%),#0E1411;color:var(--white);padding:clamp(80px,9vw,124px) 0}
 .approach .head{display:grid;grid-template-columns:1fr 2.4fr;gap:clamp(24px,5vw,80px);margin-bottom:clamp(40px,4vw,64px)}
