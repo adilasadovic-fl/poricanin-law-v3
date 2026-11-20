@@ -11,9 +11,15 @@
   onScroll(); addEventListener('scroll', onScroll, { passive: true });
 
   // mobile menu
-  const mb = $('#menuBtn'), mn = $('#mobileNav');
-  const setMenu = o => { mn.classList.toggle('open', o); mb.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : ''; if (o) header.classList.add('scrolled'); else onScroll(); };
+  const mb = $('#menuBtn'), mn = $('#mobileNav'), mc = $('#menuClose');
+  const setMenu = o => {
+    const was = mn.classList.contains('open');
+    mn.classList.toggle('open', o); mb.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : '';
+    if (o && !was) setTimeout(() => mc && mc.focus(), 50);
+    if (!o && was) mb.focus();
+  };
   mb.addEventListener('click', () => setMenu(!mn.classList.contains('open')));
+  if (mc) mc.addEventListener('click', () => setMenu(false));
   $$('a', mn).forEach(a => a.addEventListener('click', () => setMenu(false)));
   addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
