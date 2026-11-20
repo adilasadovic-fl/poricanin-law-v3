@@ -1,5 +1,6 @@
 /* Poricanin Law: shared behaviour for every page. Each block runs only if its elements exist. */
 (() => {
+  window.__site = true;
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
