@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poricanin Law | Practical legal counsel for business</title>
+<meta name="description" content="Poricanin Law: industry-focused, practical legal counsel for businesses and their executives across New York.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0A0A0A;
+    --ink:#111111;
+    --white:#FFFFFF;
+    --paper:#F3F3F1;
+    --line:#E2E2DF;
+    --line-dark:#2A2A2A;
+    --text:#1A1A1A;
+    --muted:#5C5F5C;        /* 6.4:1 on white */
+    --muted-dark:#A3A3A0;   /* 7.6:1 on black */
+    --green:#3DCB86;        /* on dark */
+    --green-ink:#1A7A4E;    /* on light, 5.4:1 */
+    --wrap:1320px;
+    --gutter:clamp(16px,3.5vw,40px);
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--white);color:var(--text);font-family:"Poppins",system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button,input,select,textarea{font:inherit;color:inherit}
+  :focus-visible{outline:2px solid var(--green);outline-offset:3px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+  section{position:relative}
+
+  .label{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--text)}
+  .dark .label{color:var(--white)}
+  .thin{font-weight:200;letter-spacing:-.03em;line-height:1.08}
+  .caps{font-weight:500;text-transform:uppercase;letter-spacing:-.01em;line-height:1.05}
+  .green{color:var(--green-ink)}
+  .dark .green{color:var(--green)}
+
+  .btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 26px;border:1px solid currentColor;font-size:15px;font-weight:400;transition:background .25s,color .25s,border-color .25s}
+  .btn svg{width:18px;height:18px;transition:transform .25s var(--ease)}
+  .btn:hover svg{transform:translateX(4px)}
+  .btn-light{color:var(--white);border-color:rgba(255,255,255,.7)}
+  .btn-light:hover{background:var(--white);color:var(--black)}
+  .btn-dark{color:var(--text);border-color:var(--text)}
+  .btn-dark:hover{background:var(--black);color:var(--white)}
+  .btn-green{background:var(--green);border-color:var(--green);color:#06140D;font-weight:500}
+  .btn-green:hover{background:#5ADB9B;border-color:#5ADB9B}
+  .link-arrow{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:400;padding:10px 0}
+  .link-arrow svg{width:18px;height:18px;transition:transform .25s var(--ease)}
+  .link-arrow:hover svg{transform:translateX(4px)}
+
+  /* ---------- header ---------- */
+  .header{position:fixed;inset:0 0 auto;z-index:60;color:var(--white);transition:background .35s,border-color .35s;border-bottom:1px solid rgba(255,255,255,.14)}
+  .header.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:transparent}
+  .header .wrap{height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo img{height:21px;width:auto}
+  .logo span{font-weight:300;font-size:22px;line-height:1;transform:translateY(1px)}
+  .nav{display:flex;gap:30px;font-size:12.5px;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
+  .nav a{opacity:.85;padding:10px 0;transition:opacity .2s,color .2s}
+  .nav a:hover{opacity:1;color:var(--green)}
+  .head-right{display:flex;align-items:center;gap:22px;font-size:13px}
+  .head-right .client{opacity:.85}
+  .head-right .client:hover{opacity:1}
+  .header .btn{min-height:42px;padding:0 18px;font-size:13px}
+  .menu-btn{display:none;background:none;border:0;width:44px;height:44px;place-items:center;cursor:pointer;color:var(--white)}
+  .mobile-nav{display:none}
+
+  /* ---------- hero ---------- */
+  .hero{height:100vh;height:100svh;min-height:640px;color:var(--white);overflow:hidden;display:flex;align-items:flex-end}
+  .hero-bg{position:absolute;inset:0;background:url("{{hero-facade.webp}}") center/cover no-repeat;filter:grayscale(.35) contrast(1.05);transform:scale(1.08);animation:heroIn 2.4s var(--ease) forwards}
+  @keyframes heroIn{to{transform:scale(1)}}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.35) 40%,rgba(10,10,10,.88) 100%)}
+  .hero .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:end;padding-bottom:clamp(48px,8vh,96px)}
+  .hero h1{font-size:clamp(44px,6.4vw,96px);font-weight:200;letter-spacing:-.04em;line-height:1.02}
+  .hero h1 b{font-weight:500;color:var(--green)}
+  .hero-side{display:flex;flex-direction:column;gap:28px;align-items:flex-start;padding-bottom:10px}
+  .hero-side p{font-size:15px;color:rgba(255,255,255,.86);max-width:44ch}
+  .hero-meta{position:absolute;z-index:2;right:var(--gutter);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;align-items:center}
+  .hero-meta i{width:2px;height:120px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
+  .hero-meta i::after{content:"";position:absolute;left:0;top:0;width:100%;height:40%;background:var(--green);animation:meter 3.2s var(--ease) infinite}
+  @keyframes meter{0%{transform:translateY(-100%)}100%{transform:translateY(260%)}}
+
+  /* ---------- why ---------- */
+  .why{padding:clamp(80px,9vw,130px) 0 clamp(80px,9vw,120px)}
+  .why-head{display:grid;grid-template-columns:1fr 2.6fr;gap:40px;margin-bottom:56px}
+  .why-head p{font-size:clamp(24px,2.5vw,34px);font-weight:300;letter-spacing:-.02em;line-height:1.3;max-width:28ch}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,20px)}
+  .card{position:relative;aspect-ratio:3/4;overflow:hidden;color:var(--white);background:var(--black)}
+  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transform:scale(1.02);transition:filter .7s var(--ease),transform 1.2s var(--ease)}
+  .card:hover img{filter:grayscale(.1);transform:scale(1.07)}
+  .card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,10,10,.05) 25%,rgba(10,10,10,.55) 55%,rgba(10,10,10,.94) 100%)}
+  .card .num{position:absolute;z-index:2;top:22px;right:26px;font-size:clamp(40px,4vw,58px);font-weight:200;letter-spacing:-.03em;line-height:1;transition:color .4s}
+  .card:hover .num{color:var(--green)}
+  .card .body{position:absolute;z-index:2;left:clamp(20px,2.2vw,32px);right:clamp(20px,2.2vw,32px);bottom:clamp(22px,2.4vw,34px)}
+  .card h3{font-size:clamp(17px,1.5vw,21px);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.25;margin-bottom:12px}
+  .card p{font-size:14px;color:rgba(255,255,255,.86);max-width:36ch}
+  .card .bar{display:block;width:32px;height:2px;background:var(--green);margin-bottom:18px;transition:width .5s var(--ease)}
+  .card:hover .bar{width:64px}
+
+  /* ---------- band ---------- */
+  .band{background:var(--black);color:var(--white);padding:clamp(80px,9vw,120px) 0}
+  .band-head{text-align:center;font-size:clamp(24px,2.6vw,36px);font-weight:300;letter-spacing:-.02em;line-height:1.3;max-width:30ch;margin:0 auto clamp(56px,6vw,88px)}
+  .band-grid{display:grid;grid-template-columns:1fr 2fr;gap:clamp(32px,5vw,80px);align-items:stretch}
+  .stats{display:flex;flex-direction:column;justify-content:space-between}
+  .stat{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:26px 0 30px;border-top:1px solid var(--line-dark)}
+  .stat:last-child{border-bottom:1px solid var(--line-dark)}
+  .stat b{font-size:clamp(48px,5vw,72px);font-weight:200;letter-spacing:-.04em;line-height:1}
+  .stat b sup{font-size:.45em;color:var(--green);font-weight:300;vertical-align:top;margin-left:2px}
+  .stat span{font-size:13px;color:var(--muted-dark);text-align:right;padding-top:8px}
+  .offices{display:grid;grid-template-columns:1fr 1.25fr;grid-template-rows:1fr 1fr;gap:clamp(10px,1.2vw,16px);min-height:520px}
+  .office{position:relative;overflow:hidden;background:#1a1a1a}
+  .office:first-child{grid-row:span 2}
+  .office img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .7s var(--ease),transform 1.2s var(--ease)}
+  .office:hover img{filter:grayscale(0);transform:scale(1.04)}
+  .office::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,10,10,.85))}
+  .office figcaption{position:absolute;z-index:2;left:20px;right:20px;bottom:18px}
+  .office figcaption b{display:block;font-size:17px;font-weight:500}
+  .office figcaption span{font-size:13px;color:rgba(255,255,255,.82)}
+
+  /* ---------- practice ---------- */
+  .practice{border-bottom:1px solid var(--line)}
+  .practice-grid{display:grid;grid-template-columns:minmax(260px,1fr) 3fr;border-top:1px solid var(--line)}
+  .practice-intro{padding:clamp(48px,5vw,72px) clamp(24px,3vw,44px) 48px var(--gutter);border-right:1px solid var(--line);display:flex;flex-direction:column}
+  .practice-intro h2{font-size:clamp(30px,3vw,42px);margin-top:44px}
+  .practice-intro h2.caps{font-size:clamp(26px,2.4vw,34px);margin-top:18px}
+  .practice-intro p{margin-top:auto;padding-top:40px;color:var(--muted);font-size:14.5px;max-width:30ch}
+  .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
+  .track::-webkit-scrollbar{display:none}
+  .pa{flex:0 0 clamp(260px,24vw,330px);scroll-snap-align:start;border-right:1px solid var(--line);padding:clamp(40px,4vw,60px) clamp(22px,2.2vw,32px) 32px;min-height:520px;display:flex;flex-direction:column;position:relative;transition:background .35s}
+  .pa::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+  .pa:hover{background:var(--paper)}
+  .pa:hover::before{transform:scaleX(1)}
+  .pa .n{font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--green-ink)}
+  .pa h3{font-size:clamp(24px,2vw,28px);font-weight:400;letter-spacing:-.02em;line-height:1.15;margin-top:18px}
+  .pa p{margin-top:auto;font-size:14.5px;color:var(--muted);padding-top:40px}
+  .pa .go{margin-top:22px;width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);transition:background .25s,border-color .25s,color .25s}
+  .pa:hover .go{background:var(--black);border-color:var(--black);color:var(--white)}
+  .pa .go svg{width:18px;height:18px}
+  .practice-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding:6px var(--gutter)}
+  .arrows{display:flex;gap:4px}
+  .arrows button{width:48px;height:48px;background:none;border:0;display:grid;place-items:center;cursor:pointer;transition:color .2s}
+  .arrows button:hover{color:var(--green-ink)}
+  .arrows button:disabled{opacity:.3;cursor:default}
+  .arrows svg{width:22px;height:22px}
+
+  /* ---------- founder ---------- */
+  .founder{background:var(--paper)}
+  .founder-grid{display:grid;grid-template-columns:1fr 1fr;min-height:720px}
+  .founder-text{padding:clamp(72px,8vw,120px) clamp(24px,5vw,80px) clamp(64px,7vw,100px) max(var(--gutter),calc((100vw - var(--wrap))/2 + var(--gutter)));display:flex;flex-direction:column}
+  .founder-text h2{font-size:clamp(34px,3.6vw,52px);margin-top:44px}
+  .founder-text h2.caps{font-size:clamp(24px,2.4vw,34px);margin-top:12px}
+  .founder-text .bio{margin-top:36px;max-width:52ch;color:var(--muted);font-size:16px}
+  .founder-text .bio p+p{margin-top:16px}
+  .founder-text .btn{margin-top:auto;align-self:flex-start}
+  .founder-text .spacer{height:44px;flex:none}
+  .founder-img{position:relative;overflow:hidden;background:radial-gradient(ellipse 60% 50% at 55% 40%,rgba(61,203,134,.28),transparent 70%),linear-gradient(170deg,#18241D 0%,#0E1210 55%,#0A0A0A 100%)}
+  .founder-img img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:92%;width:auto;max-width:none;filter:drop-shadow(0 30px 70px rgba(0,0,0,.55))}
+  .founder-img .cap{position:absolute;left:28px;bottom:26px;z-index:2;color:var(--white);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+  .founder-img .cap i{display:inline-block;width:24px;height:2px;background:var(--green);vertical-align:middle;margin-right:12px}
+
+  /* ---------- testimonials ---------- */
+  /* ---------- forework (family company) ---------- */
+  .fw{min-height:680px;color:var(--white);overflow:hidden;display:flex;background:var(--black)}
+  .fw-bg{position:absolute;inset:0;background:url("{{forework-office.webp}}") center 40%/cover no-repeat;filter:grayscale(1) contrast(1.05);transform:scale(1.04);transition:transform 6s var(--ease)}
+  .fw:hover .fw-bg{transform:scale(1)}
+  .fw::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,10,10,.9) 0%,rgba(10,10,10,.55) 55%,rgba(10,10,10,.35) 100%),linear-gradient(180deg,rgba(10,10,10,.2) 40%,rgba(10,10,10,.92) 100%)}
+  .fw::after{content:"";position:absolute;z-index:1;right:-10%;bottom:-40%;width:70%;height:90%;background:radial-gradient(ellipse at center,rgba(61,203,134,.30),transparent 65%);pointer-events:none}
+  .fw .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto 1fr auto auto;column-gap:48px;padding-top:clamp(56px,7vw,96px)}
+  .fw-brand{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+  .fw-brand .label{color:var(--green)}
+  .fw-brand img{height:30px;width:auto}
+  .fw-note{grid-column:2;align-self:start;font-size:15px;color:rgba(255,255,255,.86);max-width:44ch}
+  .fw h2{grid-column:1;grid-row:3;font-size:clamp(38px,4.8vw,72px);font-weight:200;letter-spacing:-.04em;line-height:1.04;padding-top:56px}
+  .fw h2 b{font-weight:500;color:var(--green)}
+  .fw .act{grid-column:2;grid-row:3;align-self:end;display:flex;gap:14px;flex-wrap:wrap}
+  .fw-links{grid-column:1/-1;grid-row:4;display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(40px,5vw,64px);border-top:1px solid rgba(255,255,255,.22)}
+  .fw-links a{display:flex;flex-direction:column;gap:6px;padding:22px 24px 30px;border-left:1px solid rgba(255,255,255,.22);position:relative;transition:background .3s}
+  .fw-links a:first-child{border-left:0;padding-left:0}
+  .fw-links a::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:100%;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+  .fw-links a:hover::before{transform:scaleX(1)}
+  .fw-links .n{font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--green)}
+  .fw-links b{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:clamp(17px,1.4vw,20px);font-weight:400;letter-spacing:-.01em}
+  .fw-links b svg{width:18px;height:18px;flex:none;transition:transform .3s var(--ease)}
+  .fw-links a:hover b svg{transform:translate(3px,-3px);color:var(--green)}
+  .fw-links span.s{font-size:13.5px;color:rgba(255,255,255,.72)}
+
+  .quotes{padding:clamp(80px,9vw,130px) 0}
+  .quotes-grid{display:grid;grid-template-columns:1fr 2.6fr;gap:40px}
+  .quotes-side{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+  .counter{font-size:14px;color:var(--muted)}
+  .counter b{color:var(--text);font-weight:500}
+  .slides{position:relative;min-height:340px}
+  .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease),visibility .6s}
+  .slide.active{position:relative;opacity:1;visibility:visible;transform:none}
+  .slide blockquote{font-size:clamp(20px,2vw,27px);font-weight:300;letter-spacing:-.015em;line-height:1.45}
+  .slide blockquote::before{content:"“";display:block;font-size:72px;line-height:.6;height:34px;color:var(--green-ink);font-weight:300}
+  .slide cite{display:flex;align-items:center;gap:14px;margin-top:32px;font-style:normal;font-size:14px;font-weight:500}
+  .slide cite::before{content:"";width:32px;height:2px;background:var(--green)}
+
+  /* ---------- news & insights ---------- */
+  .insights{background:var(--paper);padding:clamp(80px,9vw,120px) 0}
+  .insights-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(40px,4vw,56px)}
+  .insights-head h2{font-size:clamp(36px,4.2vw,60px);margin-top:16px}
+  .insights-head p{margin-top:18px;color:var(--muted);max-width:52ch}
+  .btn-solid{background:var(--black);color:var(--white);border-color:var(--black)}
+  .btn-solid:hover{background:var(--green-ink);border-color:var(--green-ink)}
+  .news{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,3.5vw,56px);align-items:start}
+  .tags{display:flex;gap:8px;flex-wrap:wrap}
+  .tag{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 11px;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1}
+  .tag svg{width:12px;height:12px}
+  .tag-premium{background:var(--black);color:var(--green)}
+  .tag-free{border:1px solid var(--green-ink);color:var(--green-ink)}
+  .tag-event{background:var(--green);color:#06140D}
+  .tag-type{background:var(--white);color:var(--muted);font-weight:500;letter-spacing:.04em;text-transform:none;font-size:12.5px;border:1px solid var(--line)}
+  .byline{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--muted)}
+  .byline .av{width:34px;height:34px;border-radius:50%;background:var(--black);color:var(--green);display:grid;place-items:center;font-size:12px;font-weight:600;letter-spacing:.04em;flex:none}
+  .byline .dot{width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.6}
+  /* featured */
+  .feature{display:flex;flex-direction:column;gap:20px}
+  .feature .img{display:block;aspect-ratio:4/3;overflow:hidden;background:#ddd}
+  .feature .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+  .feature:hover .img img{transform:scale(1.04)}
+  .feature h3{font-size:clamp(26px,2.4vw,36px);font-weight:300;letter-spacing:-.025em;line-height:1.16}
+  .feature h3 a{transition:color .2s}
+  .feature h3 a:hover{color:var(--green-ink)}
+  .feature .excerpt{color:var(--muted);font-size:15.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .feature .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:4px}
+  .feature .btn{min-height:46px;padding:0 22px;font-size:14px}
+  /* list */
+  .news-list{display:flex;flex-direction:column}
+  .item{display:grid;grid-template-columns:clamp(150px,13vw,200px) 1fr;gap:clamp(18px,2vw,26px);padding:22px 0;border-top:1px solid var(--line)}
+  .item:first-child{border-top:0;padding-top:0}
+  .item .thumb{display:block;aspect-ratio:7/6;overflow:hidden;background:#ddd;position:relative}
+  .item .thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15);transition:transform 1s var(--ease),filter .5s}
+  .item:hover .thumb img{transform:scale(1.05);filter:none}
+  .item .body{display:flex;flex-direction:column;gap:10px;min-width:0}
+  .item h3{font-size:clamp(17px,1.4vw,20px);font-weight:400;letter-spacing:-.015em;line-height:1.3}
+  .item h3 a:hover{color:var(--green-ink)}
+  .item .excerpt{font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .item .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:auto}
+  .read{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);padding:6px 0;transition:color .2s,text-decoration-color .2s}
+  .read:hover{color:var(--green-ink);text-decoration-color:var(--green-ink)}
+  .read svg{width:14px;height:14px}
+  /* event thumb */
+  .thumb.event{background:radial-gradient(ellipse 90% 80% at 100% 100%,rgba(31,122,82,.85),transparent 65%),var(--black);color:var(--white);display:flex;flex-direction:column;justify-content:space-between;padding:16px}
+  .thumb.event::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.2px);background-size:10px 10px;mask-image:linear-gradient(135deg,transparent 30%,#000);-webkit-mask-image:linear-gradient(135deg,transparent 30%,#000)}
+  .thumb.event span{position:relative;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+  .thumb.event b{position:relative;font-size:clamp(26px,2.4vw,34px);font-weight:200;letter-spacing:-.03em;line-height:1}
+  .thumb.event small{position:relative;font-size:12px;color:rgba(255,255,255,.75)}
+
+  /* ---------- cta ---------- */
+  .cta{min-height:620px;color:var(--white);overflow:hidden;display:flex}
+  .cta-bg{position:absolute;inset:0;background:url("{{city-lights.webp}}") center 75%/cover no-repeat}
+  .cta::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,10,10,.6),rgba(10,10,10,.35) 50%,rgba(10,10,10,.85))}
+  .cta .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto 1fr auto;padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(56px,7vw,96px)}
+  .cta .note{grid-column:2;font-size:15px;color:rgba(255,255,255,.88);max-width:44ch}
+  .cta h2{grid-column:1;grid-row:3;font-size:clamp(36px,4.4vw,64px);font-weight:200;letter-spacing:-.035em;line-height:1.08}
+  .cta .act{grid-column:2;grid-row:3;align-self:end;display:flex;gap:14px;flex-wrap:wrap}
+
+  /* ---------- contact ---------- */
+  .contact{padding:clamp(80px,9vw,130px) 0}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(40px,6vw,96px)}
+  .contact h2{font-size:clamp(32px,3.4vw,48px);margin:16px 0 22px}
+  .contact .intro{color:var(--muted);max-width:40ch}
+  .direct{margin-top:40px;display:grid;gap:4px}
+  .direct a{font-size:clamp(20px,1.8vw,24px);font-weight:400;letter-spacing:-.01em;padding:6px 0;display:inline-block;transition:color .2s}
+  .direct a:hover{color:var(--green-ink)}
+  .addr{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px 28px;padding-top:28px;border-top:1px solid var(--line)}
+  .addr h4{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+  .addr p{font-size:14px;color:var(--muted);line-height:1.6}
+  form .fields{display:grid;grid-template-columns:1fr 1fr;gap:34px 32px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+  .field label .req{color:var(--green-ink)}
+  .field input,.field select,.field textarea{border:0;border-bottom:1px solid #9C9E9B;background:transparent;padding:12px 0;font-size:16px;font-weight:300;border-radius:0;-webkit-appearance:none;appearance:none;transition:border-color .2s}
+  .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%231A1A1A' stroke-width='1.5'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;padding-right:24px}
+  .field textarea{min-height:120px;resize:vertical}
+  .field input::placeholder,.field textarea::placeholder{color:#767976}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom:2px solid var(--green-ink);padding-bottom:11px}
+  .field .err{display:none;font-size:13px;color:#B3261E}
+  .field.invalid input,.field.invalid select{border-bottom-color:#B3261E}
+  .field.invalid .err{display:block}
+  .form-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:40px}
+  .form-foot p{font-size:13px;color:var(--muted);max-width:44ch}
+  .form-foot .btn{cursor:pointer;background:var(--black);color:var(--white);border-color:var(--black)}
+  .form-foot .btn:hover{background:var(--green-ink);border-color:var(--green-ink)}
+  .form-ok{display:none;margin-top:24px;padding:16px 18px;background:rgba(26,122,78,.08);border-left:2px solid var(--green-ink);font-size:14.5px}
+
+  /* ---------- footer ---------- */
+  .footer{background:var(--paper);padding:clamp(64px,7vw,96px) 0 32px}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding-bottom:44px;border-bottom:1px solid var(--line)}
+  .footer-top .logo span{color:var(--text)}
+  .logo-xl{gap:clamp(10px,1.2vw,18px)}
+  .logo-xl img{height:clamp(34px,4.6vw,62px)}
+  .logo-xl span{font-size:clamp(36px,4.9vw,66px);font-weight:300;letter-spacing:-.01em;transform:translateY(2px)}
+  .totop{width:48px;height:48px;border:1px solid var(--line);display:grid;place-items:center;transition:background .25s,color .25s}
+  .totop:hover{background:var(--black);color:var(--white)}
+  .totop svg{width:18px;height:18px}
+  .footer-main{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding:48px 0}
+  .footer ul{list-style:none;display:grid;gap:2px}
+  .footer ul a{display:inline-block;padding:7px 0;font-size:14.5px;transition:color .2s}
+  .footer ul a:hover{color:var(--green-ink)}
+  .footer h5{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .footer-bottom nav{display:flex;gap:22px}
+  .footer-bottom a{padding:6px 0}
+  .footer-bottom a:hover{color:var(--green-ink)}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    .hero-bg{transform:none}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1100px){
+    .nav{gap:20px;letter-spacing:.1em}
+    .head-right .client{display:none}
+    .band-grid{grid-template-columns:1fr}
+    .stats{flex-direction:row}
+    .stat{flex:1;flex-direction:column;border-bottom:1px solid var(--line-dark);padding-right:20px}
+    .stat span{text-align:left;padding-top:0}
+    .footer-main{grid-template-columns:1fr 1fr}
+    .footer-main>div:first-child{grid-column:1/-1}
+  }
+  @media (max-width:900px){
+    .nav,.head-right{display:none}
+    .menu-btn{display:grid}
+    .mobile-nav{position:fixed;inset:84px 0 0;z-index:59;background:var(--black);padding:16px var(--gutter) 32px;flex-direction:column;overflow:auto}
+    .mobile-nav.open{display:flex}
+    .mobile-nav a{color:var(--white);font-size:24px;font-weight:300;padding:14px 0;border-bottom:1px solid var(--line-dark)}
+    .mobile-nav a.btn-green{margin-top:28px;justify-content:center;color:#06140D;font-size:15px;font-weight:500;border-bottom:0}
+    .hero .wrap{grid-template-columns:1fr;gap:28px}
+    .hero-meta{display:none}
+    .why-head,.quotes-grid,.contact-grid{grid-template-columns:1fr;gap:20px}
+    .cards{grid-template-columns:1fr;gap:14px}
+    .card{aspect-ratio:4/3}
+    .practice-grid{grid-template-columns:1fr}
+    .practice-intro{border-right:0;border-bottom:1px solid var(--line);padding:56px var(--gutter) 40px}
+    .practice-intro h2{margin-top:24px}
+    .pa{min-height:420px}
+    .founder-grid{grid-template-columns:1fr}
+    .founder-img{min-height:520px;order:-1}
+    .founder-text{padding:64px var(--gutter)}
+    .news{grid-template-columns:1fr}
+    .cta .wrap{grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:28px}
+    .cta .note,.cta h2,.cta .act{grid-column:1;grid-row:auto}
+    .fw .wrap{grid-template-columns:1fr;grid-template-rows:auto;row-gap:24px}
+    .fw-note,.fw h2,.fw .act,.fw-links{grid-column:1;grid-row:auto}
+    .fw h2{padding-top:24px}
+    .fw-links{grid-template-columns:1fr 1fr}
+    .fw-links a:nth-child(3){border-left:0;padding-left:0}
+    .cta{min-height:auto}
+  }
+  @media (max-width:640px){
+    .stats{flex-direction:column}
+    .stat{flex-direction:row;align-items:center}
+    .offices{grid-template-columns:1fr;grid-template-rows:auto;min-height:0}
+    .office:first-child{grid-row:auto}
+    .office{aspect-ratio:16/10}
+    form .fields{grid-template-columns:1fr}
+    .addr{grid-template-columns:1fr}
+    .footer-main{grid-template-columns:1fr}
+    .slides{min-height:0}
+    .fw-links{grid-template-columns:1fr}
+    .fw-links a{border-left:0;padding-left:0;border-bottom:1px solid rgba(255,255,255,.22)}
+    .item{grid-template-columns:112px 1fr;gap:16px}
+    .item .byline>span:first-child,.item .byline .dot{display:none}
+    .byline{white-space:nowrap}
+    .thumb.event{padding:12px}
+    .thumb.event b{font-size:22px}
+    .thumb.event small{display:none}
+    .btn{width:100%;justify-content:center}
+    .header .btn,.form-foot .btn{width:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Poricanin Law home"><img src="{{poricanin-wordmark-white.png}}" alt="Poricanin" width="118" height="21"><span>Law</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#why">About</a>
+      <a href="#practice">Practice Areas</a>
+      <a href="#founder">Our Founder</a>
+      <a href="#insights">News &amp; Insights</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="head-right">
+      <a href="#" class="client">Client Area</a>
+      <a href="#contact" class="btn btn-light">Schedule consultation</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+  <a href="#why">About</a><a href="#practice">Practice Areas</a><a href="#founder">Our Founder</a><a href="#insights">News &amp; Insights</a><a href="#contact">Contact</a><a href="#">Client Area</a>
+  <a href="#contact" class="btn btn-green">Schedule consultation</a>
+</nav>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero-bg" role="img" aria-label="Illuminated office building at night"></div>
+  <div class="wrap">
+    <h1>Practical legal solutions for <b>business.</b></h1>
+    <div class="hero-side">
+      <a href="#why" class="btn btn-light">Our approach <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      <p>We don't just identify issues. We provide practical solutions to industry-specific challenges for companies and their executives across New York.</p>
+    </div>
+  </div>
+  <div class="hero-meta" aria-hidden="true"><i></i></div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="why-head reveal">
+      <span class="label">Why Poricanin Law?</span>
+      <p>Industry-focused legal expertise, driving tailored solutions that help clients navigate complex challenges and make <span class="green">confident, informed decisions.</span></p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <img src="{{glass-tower.webp}}" alt="" loading="lazy">
+        <span class="num">01</span>
+        <div class="body"><span class="bar"></span><h3>Industry-focused<br>expertise</h3><p>We combine deep industry experience with practical legal insight, so we understand your business before we advise on it.</p></div>
+      </article>
+      <article class="card reveal">
+        <img src="{{skyscrapers.webp}}" alt="" loading="lazy">
+        <span class="num">02</span>
+        <div class="body"><span class="bar"></span><h3>Practical<br>solutions</h3><p>Every legal question is weighed against your operations, budget and goals, with a clear course of action.</p></div>
+      </article>
+      <article class="card reveal">
+        <img src="{{emina-portrait.webp}}" alt="" loading="lazy" style="object-position:50% 20%">
+        <span class="num">03</span>
+        <div class="body"><span class="bar"></span><h3>Direct, responsive<br>counsel</h3><p>You work directly with your attorney, who responds quickly and explains complex issues in a way that makes sense.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BAND ================= -->
+<section class="band dark" aria-label="At a glance">
+  <div class="wrap">
+    <p class="band-head reveal">Real-world, timely legal counsel for the industries that keep <span class="green">New York</span> running.</p>
+    <div class="band-grid">
+      <div class="stats reveal">
+        <div class="stat"><b>15<sup>+</sup></b><span>Years of practice</span></div>
+        <div class="stat"><b>6</b><span>Industries served</span></div>
+        <div class="stat"><b>3</b><span>New York offices</span></div>
+      </div>
+      <div class="offices reveal">
+        <figure class="office"><img src="{{office-buffalo.webp}}" alt="Buffalo, New York" loading="lazy"><figcaption><b>Buffalo</b><span>50 Fountain Plaza, Suite 1400</span></figcaption></figure>
+        <figure class="office"><img src="{{office-nyc.webp}}" alt="Manhattan skyline, New York City" loading="lazy"><figcaption><b>New York City</b><span>434 W. 33rd Street, 10th Floor</span></figcaption></figure>
+        <figure class="office"><img src="{{office-albany.webp}}" alt="Albany, New York" loading="lazy"><figcaption><b>Albany</b><span>90 State Street, Suite 700</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRACTICE ================= -->
+<section class="practice" id="practice">
+  <div class="practice-grid">
+    <div class="practice-intro reveal">
+      <span class="label">Practice areas</span>
+      <h2 class="thin">Dedicated to integrity and</h2>
+      <h2 class="caps">delivering results</h2>
+      <p>Our lawyers' cross-domain experience allows for real-world, timely legal counsel and customized solutions.</p>
+    </div>
+    <div class="track" id="track" tabindex="0" aria-label="Practice areas, scroll horizontally">
+      <a href="#" class="pa"><span class="n">01</span><h3>Health Care</h3><p>Serving healthcare providers, Poricanin Law addresses legislative and regulatory challenges affecting clients' market goals and operations.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+      <a href="#" class="pa"><span class="n">02</span><h3>Home Care</h3><p>Regulatory approvals, mergers and acquisitions, compliance, Medicare and Medicaid matters, litigation, employment issues and government audits.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+      <a href="#" class="pa"><span class="n">03</span><h3>Educational Institutions</h3><p>Timely legal guidance that helps institutions support their students, serve stakeholders and remain compliant with complex regulations.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+      <a href="#" class="pa"><span class="n">04</span><h3>Labor &amp; Employment</h3><p>Finding, managing and developing talent comes with legal risk. We build HR strategies that minimize litigation and disruption.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+      <a href="#" class="pa"><span class="n">05</span><h3>Hospitality</h3><p>Restaurant and hospitality owners face constant legal complexity on top of relentless business pressures. We take that weight off.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+      <a href="#" class="pa"><span class="n">06</span><h3>Manufacturing</h3><p>Corporate, tax, real estate, labor, executive compensation and other business matters for manufacturing companies and start-ups.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+  <div class="practice-foot">
+    <div class="arrows">
+      <button id="paPrev" aria-label="Previous practice areas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12H4M10 6l-6 6 6 6"/></svg></button>
+      <button id="paNext" aria-label="Next practice areas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+    </div>
+    <a href="#" class="link-arrow">All practice areas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- ================= FOUNDER ================= -->
+<section class="founder" id="founder">
+  <div class="founder-grid">
+    <div class="founder-text reveal">
+      <span class="label">Our founder</span>
+      <h2 class="thin">Emina Poricanin</h2>
+      <h2 class="caps">Lawyer &amp; tech founder</h2>
+      <!-- Bio below is a draft for review: replace with Emina's approved biography. -->
+      <div class="bio">
+        <p>Emina founded Poricanin Law to give business owners the counsel she would want as a founder: practical, direct and grounded in how companies actually operate.</p>
+        <p>Clients describe her as practical, to-the-point and always reachable. As a tech founder herself, she brings an operator's perspective to every matter, balancing legal risk against growth, cost and the realities of running a business.</p>
+      </div>
+      <div class="spacer"></div>
+      <a href="#" class="btn btn-dark">Meet our people <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="founder-img">
+      <img src="{{emina-cutout.webp}}" alt="Emina Poricanin, founder of Poricanin Law" width="887" height="1351" loading="lazy">
+      <span class="cap"><i></i>Founder</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOREWORK (family company) ================= -->
+<section class="fw" aria-label="Forework, a Poricanin company">
+  <div class="fw-bg" role="img" aria-label="Open-plan office with teams at work"></div>
+  <div class="wrap">
+    <div class="fw-brand reveal">
+      <span class="label">A Poricanin company</span>
+      <img src="{{forework-logo-white.png}}" alt="Forework" width="195" height="30">
+    </div>
+    <p class="fw-note reveal">Founded by Emina Poricanin, Esq., Forework pairs payroll, tax and HR technology with daily access to labor-law professionals, so businesses stay compliant and avoid costly audits.</p>
+    <h2 class="reveal">Workforce management, <b>built by employment attorneys.</b></h2>
+    <div class="act reveal">
+      <a href="https://forework.com" target="_blank" rel="noopener" class="btn btn-green">Visit forework.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    </div>
+    <nav class="fw-links reveal" aria-label="Forework services"><a href="https://forework.com" target="_blank" rel="noopener"><span class="n">01</span><b>Payroll &amp; tax <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M8 7h9v9"/></svg></b><span class="s">Compliant payroll and tax services</span></a><a href="https://forework.com" target="_blank" rel="noopener"><span class="n">02</span><b>Time &amp; attendance <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M8 7h9v9"/></svg></b><span class="s">Pay rules that work for everyone</span></a><a href="https://forework.com" target="_blank" rel="noopener"><span class="n">03</span><b>Human resources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M8 7h9v9"/></svg></b><span class="s">Attorney-backed HR counsel</span></a><a href="https://forework.com" target="_blank" rel="noopener"><span class="n">04</span><b>Payroll tax &amp; ACA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M8 7h9v9"/></svg></b><span class="s">State, IRS and ACA compliance</span></a></nav>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="quotes" aria-label="Client testimonials">
+  <div class="wrap quotes-grid">
+    <div class="quotes-side reveal">
+      <span class="label">What our clients say</span>
+      <div>
+        <p class="counter" aria-live="polite"><b id="qNow">01</b> / <span id="qAll">05</span></p>
+        <div class="arrows" style="margin-left:-12px;margin-top:8px">
+          <button id="qPrev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12H4M10 6l-6 6 6 6"/></svg></button>
+          <button id="qNext" aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="slides reveal" id="slides">
+      <figure class="slide active"><blockquote>Emina represented my home care agency when the New York Department of Health came in and tried to close us down. The Department was taking an unreasonable and unforgiving position, and they were ready to take our entire business away. But Emina managed to negotiate a resolution that allowed me to continue operating my business. I will forever be grateful to her.</blockquote><cite>Owner of an Upstate Home Care Agency</cite></figure>
+      <figure class="slide"><blockquote>Emina worked with us on evaluating a potential LHCSA for purchase, conducting the due diligence on that company and then tirelessly worked with us as we negotiated the purchase. We were most impressed with her industry knowledge and she was able to identify some issues down the line that, thankfully, we addressed in advance and head on before getting into the deal.</blockquote><cite>New York City owner of a licensed home care services agency (LHCSA)</cite></figure>
+      <figure class="slide"><blockquote>Emina has been our employment attorney for years. She is practical, to-the-point direct, and she explains complicated legal issues in a way that make sense. I can call Emina at any time of the day and she will respond and help us get through the problem. She is an indispensable part of our organization.</blockquote><cite>Human Services Director of a New York company</cite></figure>
+      <figure class="slide"><blockquote>The Department was threatening to put us out of business with what they were looking to collect from us for back pay, penalties and interest. She worked with the Department to negotiate a settlement that was reasonable and acceptable to us. We are still in business and know much more about Labor Laws thanks to her clear and specific explanations.</blockquote><cite>Owner of a New York City business</cite></figure>
+      <figure class="slide"><blockquote>We have worked with Emina for almost a decade. Emina understands our business and all the considerations that go into running a business. She has always been able to take a problem and offer us a practical business solution to the issue. We have saved thousands of dollars by having the benefit of her wisdom and experience.</blockquote><cite>Owner of Various Healthcare Businesses in New York State</cite></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWS & INSIGHTS ================= -->
+<section class="insights" id="insights">
+  <div class="wrap">
+    <div class="insights-head reveal">
+      <div>
+        <span class="label">News &amp; insights</span>
+        <h2 class="thin">Our events, news<br>and articles</h2>
+        <p>Practical guidance, regulatory updates and analysis for New York employers and providers.</p>
+      </div>
+      <a href="#" class="btn btn-solid">View all news &amp; insights <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    </div>
+    <div class="news">
+      <article class="feature reveal">
+        <a href="#" class="img" tabindex="-1" aria-hidden="true"><img src="{{article-evv-payroll.webp}}" alt="" loading="lazy"></a>
+        <div class="tags"><span class="tag tag-free">Free</span><span class="tag tag-type">Article</span></div>
+        <h3><a href="#">The Criminal and Civil Exposure When Your EVV and Billing Company Also Becomes Your Payroll Vendor</a></h3>
+        <p class="excerpt">At first glance, combining scheduling, EVV, billing and payroll may seem efficient. But for New York home care agencies, especially those downstate and covered by the Wage Parity Law, the risks add up quickly.</p>
+        <div class="foot">
+          <div class="byline"><span class="av" aria-hidden="true">EP</span><span>Emina Poricanin</span><span class="dot"></span><span>Sep 13, 2026</span></div>
+          <a href="#" class="btn btn-solid">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+      <div class="news-list">
+        <article class="item reveal">
+          <a href="#" class="thumb" tabindex="-1" aria-hidden="true"><img src="{{article-medicaid-hour.webp}}" alt="" loading="lazy"></a>
+          <div class="body">
+            <div class="tags"><span class="tag tag-premium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V8a5 5 0 00-10 0v2H5v12h14V10zm-8 0V8a3 3 0 016 0v2z"/></svg>Premium</span><span class="tag tag-type">Article</span></div>
+            <h3><a href="#">Hire First, Document Later? Every Medicaid Hour May Be at Risk</a></h3>
+            <p class="excerpt">A home care agency cannot send a caregiver into a Medicaid-funded home before the paperwork is complete.</p>
+            <div class="meta"><div class="byline"><span>Emina Poricanin</span><span class="dot"></span><span>Sep 1, 2026</span></div><a href="#" class="read">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
+          </div>
+        </article>
+        <article class="item reveal">
+          <a href="#" class="thumb" tabindex="-1" aria-hidden="true"><img src="{{article-revalidating.webp}}" alt="" loading="lazy"></a>
+          <div class="body">
+            <div class="tags"><span class="tag tag-premium"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V8a5 5 0 00-10 0v2H5v12h14V10zm-8 0V8a3 3 0 016 0v2z"/></svg>Premium</span><span class="tag tag-type">Article</span></div>
+            <h3><a href="#">New York Medicaid Is Revalidating Every Provider: What Providers Need to Do Now</a></h3>
+            <p class="excerpt">New York has begun a statewide revalidation of every Medicaid-enrolled provider.</p>
+            <div class="meta"><div class="byline"><span>Emina Poricanin</span><span class="dot"></span><span>Aug 24, 2026</span></div><a href="#" class="read">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
+          </div>
+        </article>
+        <!-- SAMPLE EVENT: the Events & Webinars page on poricaninlaw.com is currently empty. Replace with a real event. -->
+        <article class="item reveal">
+          <a href="#" class="thumb event" tabindex="-1" aria-hidden="true"><span>Webinar</span><b>Date<br>TBA</b><small>Online · 60 min</small></a>
+          <div class="body">
+            <div class="tags"><span class="tag tag-event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Event</span><span class="tag tag-type">Webinar</span></div>
+            <h3><a href="#">Medicaid Provider Revalidation: A Practical Checklist for Home Care Agencies</a></h3>
+            <p class="excerpt">A live walkthrough of what agencies need to prepare, with time for your questions.</p>
+            <div class="meta"><div class="byline"><span>Emina Poricanin</span><span class="dot"></span><span>Date TBA</span></div><a href="#" class="read">Register <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" aria-label="Schedule a consultation">
+  <div class="cta-bg" role="img" aria-label="City lights at night"></div>
+  <div class="wrap">
+    <p class="note reveal">Schedule a consultation by phone, email or the form below. In the first meeting we assess your situation and outline a practical way forward.</p>
+    <h2 class="reveal">Talk to us about<br>your business today.</h2>
+    <div class="act reveal">
+      <a href="#contact" class="btn btn-green">Schedule consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      <a href="tel:+15188073458" class="btn btn-light">518.807.3458</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="label">Connect with us</span>
+      <h2 class="thin">Schedule a consultation</h2>
+      <p class="intro">Tell us briefly about your business and the matter at hand. We respond within one business day, and every enquiry is treated confidentially.</p>
+      <div class="direct">
+        <a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a>
+        <a href="tel:+15188073458">518.807.3458</a>
+      </div>
+      <div class="addr">
+        <div><h4>New York City</h4><p>434 W. 33rd Street, 10th Floor<br>New York, NY 10001</p></div>
+        <div><h4>Albany</h4><p>90 State Street, Suite 700<br>Albany, NY 12207</p></div>
+        <div><h4>Buffalo</h4><p>50 Fountain Plaza, Suite 1400<br>Buffalo, NY 14202</p></div>
+        <div><h4>Notices &amp; communications</h4><p>52 Madeleine Lane<br>Glenmont, NY 12077</p></div>
+      </div>
+    </div>
+    <form id="contactForm" class="reveal" novalidate>
+      <div class="fields">
+        <div class="field"><label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" autocomplete="name" placeholder="Jane Smith" required><span class="err">Please enter your name.</span></div>
+        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization" placeholder="Company name"></div>
+        <div class="field"><label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(000) 000-0000" required><span class="err">Please enter a phone number.</span></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.com"><span class="err">Please enter a valid email.</span></div>
+        <div class="field full"><label for="f-area">Practice area <span class="req" aria-hidden="true">*</span></label>
+          <select id="f-area" name="area" required>
+            <option value="" selected disabled>Select an area</option>
+            <option>Health Care</option><option>Home Care</option><option>Educational Institutions</option><option>Labor &amp; Employment</option><option>Hospitality</option><option>Manufacturing</option><option>Other business matter</option>
+          </select><span class="err">Please choose a practice area.</span></div>
+        <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Briefly describe the matter and your timeline."></textarea></div>
+      </div>
+      <div class="form-foot">
+        <p>* Required. Submitting this form does not create an attorney-client relationship.</p>
+        <button type="submit" class="btn">Schedule consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="form-ok" id="formOk" role="status" tabindex="-1">Thank you. We'll be in touch within one business day. (Prototype: nothing was sent.)</div>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="#top" class="logo logo-xl" aria-label="Poricanin Law home"><img src="{{poricanin-wordmark-black.png}}" alt="Poricanin" width="330" height="59"><span>Law</span></a>
+      <a href="#top" class="totop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V4M6 10l6-6 6 6"/></svg></a>
+    </div>
+    <div class="footer-main">
+      <div>
+        <h5>Contact</h5>
+        <ul><li><a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a></li><li><a href="tel:+15188073458">518.807.3458</a></li><li><a href="https://forework.com" target="_blank" rel="noopener">Forework, a Poricanin company</a></li></ul>
+      </div>
+      <div><h5>Firm</h5><ul><li><a href="#why">About us</a></li><li><a href="#practice">Services</a></li><li><a href="#founder">Our founder</a></li><li><a href="#">Events &amp; webinars</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="#insights">News &amp; insights</a></li><li><a href="#">Client feedback</a></li><li><a href="#">Client area</a></li><li><a href="#contact">Contact us</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Poricanin Law. All rights reserved. Attorney advertising.</span>
+      <nav aria-label="Legal"><a href="#">LinkedIn</a><a href="#">Facebook</a><a href="#">Privacy policy</a><a href="#">Disclaimer</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',scrollY>40);onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+  const mb=document.getElementById('menuBtn'),mn=document.getElementById('mobileNav');
+  const setMenu=o=>{mn.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';if(o)header.classList.add('scrolled');else onScroll()};
+  mb.addEventListener('click',()=>setMenu(!mn.classList.contains('open')));
+  mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // practice slider
+  const track=document.getElementById('track'),pp=document.getElementById('paPrev'),pn=document.getElementById('paNext');
+  const step=()=>track.querySelector('.pa').offsetWidth;
+  const upd=()=>{pp.disabled=track.scrollLeft<4;pn.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-4};
+  pp.onclick=()=>track.scrollBy({left:-step()});pn.onclick=()=>track.scrollBy({left:step()});
+  track.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+
+  // testimonials
+  const slides=[...document.querySelectorAll('.slide')];let qi=0;
+  document.getElementById('qAll').textContent=String(slides.length).padStart(2,'0');
+  const show=i=>{qi=(i+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('active',k===qi));document.getElementById('qNow').textContent=String(qi+1).padStart(2,'0')};
+  document.getElementById('qPrev').onclick=()=>show(qi-1);document.getElementById('qNext').onclick=()=>show(qi+1);
+
+  // form
+  const form=document.getElementById('contactForm');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();let first=null;
+    form.querySelectorAll('.field').forEach(f=>{const el=f.querySelector('input,select,textarea');const bad=el&&!el.checkValidity();f.classList.toggle('invalid',bad);el&&el.setAttribute('aria-invalid',bad);if(bad&&!first)first=el});
+    if(first){first.focus();return}
+    const ok=document.getElementById('formOk');ok.style.display='block';ok.focus();form.reset();
+  });
+  form.addEventListener('input',e=>{const f=e.target.closest('.field');if(f&&e.target.checkValidity())f.classList.remove('invalid')});
+</script>
+</body>
+</html>
