@@ -122,16 +122,66 @@
     <a href="sector-home-care.html" class="sd-nxt"><span>Next sector</span><b>Home Care</b></a>
   </div>
 </nav>
-<!-- ================= CTA ================= -->
-<section class="cta" aria-label="Schedule a consultation">
-  <div class="cta-bg" role="img" aria-label="City lights at night"></div>
-  <div class="wrap">
-    <p class="note reveal">Schedule a consultation by phone, email or our contact form. In the first meeting we assess your situation and outline a practical way forward.</p>
-    <h2 class="reveal">Talk to us about<br>your business today.</h2>
-    <div class="act reveal">
-      <a href="contact.html" class="btn btn-green" data-schedule>Schedule a consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
-      <a href="tel:+15188073458" class="btn btn-light">518.807.3458</a>
+<!-- ================= WRITE TO US ================= -->
+<section class="write" id="contact" aria-labelledby="writeTitle">
+  <h2 id="writeTitle" class="sr-only">Contact us</h2>
+  <div class="w-ticker" aria-hidden="true">
+    <div class="w-ticker-track">
+      <span>Have a question? <em>Write to us.</em></span><span>Have a question? <em>Write to us.</em></span><span>Have a question? <em>Write to us.</em></span><span>Have a question? <em>Write to us.</em></span>
     </div>
+  </div>
+  <div class="wrap">
+<!-- ================= ENQUIRY: contact lines and next steps on the left, underlined form on the right =================
+     Used on the homepage (inside the dark "Write to us" section) and in the Contact page hero.
+     PROTOTYPE: the form is not connected to email or a CRM. On submit it checks the fields, then says plainly that nothing was sent. -->
+<div class="enq">
+  <div class="enq-side">
+    <p class="kick">/ Enquire</p>
+    <ul class="enq-lines" role="list">
+      <li><span aria-hidden="true">P</span><a href="tel:+15188073458"><span class="sr-only">Phone: </span>518.807.3458</a></li>
+      <li><span aria-hidden="true">E</span><a href="mailto:hello@poricaninlaw.com"><span class="sr-only">Email: </span>hello@poricaninlaw.com</a></li>
+    </ul>
+    <a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" class="btn btn-light enq-book" data-schedule>Pick a consultation time <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </div>
+
+  <form class="uf" id="contactForm" novalidate aria-label="Send us an enquiry">
+    <div class="uf-field"><label for="f-name">Name <i aria-hidden="true">*</i><span class="sr-only">(required)</span></label><input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name"><span class="err" id="e-name">Please enter your name.</span></div>
+    <div class="uf-field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
+    <div class="uf-field"><label for="f-email">Email <i aria-hidden="true">*</i><span class="sr-only">(required)</span></label><input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><span class="err" id="e-email">Please enter an email address, like name@company.com.</span></div>
+    <div class="uf-field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9+().\s\-]{7,}" aria-describedby="e-phone"><span class="err" id="e-phone">Please use digits only, for example 518 807 3458.</span></div>
+    <div class="uf-field full"><label for="f-area">How can we help?</label>
+      <select id="f-area" name="service">
+        <option value="" selected>Not sure yet</option>
+        <option>Outside General Counsel &amp; Business Advisory</option>
+        <option>Labor &amp; Employment Law</option>
+        <option>Litigation &amp; Dispute Resolution</option>
+        <option>Regulatory Compliance &amp; Government Investigations</option>
+        <option>Corporate Transactions &amp; Commercial Contracts</option>
+        <option>Workplace Advisory &amp; Risk Management</option>
+      </select></div>
+    <div class="uf-field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" rows="4"></textarea></div>
+    <div class="uf-foot">
+      <div>
+        <label class="agree" id="consentWrap"><input type="checkbox" id="f-consent" name="consent" required aria-describedby="e-consent"> <span>I agree with the <a href="https://www.poricaninlaw.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a></span></label>
+        <span class="err agree-err" id="e-consent">Please confirm you have read the Privacy Policy.</span>
+      </div>
+      <button type="submit" class="btn btn-green">Send enquiry <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+    </div>
+    <details class="disc"><summary>Read disclaimer</summary><p>Submitting this form does not create an attorney-client relationship. We will confirm in writing if and when we can act for you.</p></details>
+    <div class="form-ok" id="formOk" role="status" tabindex="-1"><b>This form is a preview and is not connected yet, so your message has not been sent.</b> Please email <a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a>, call <a href="tel:+15188073458">518.807.3458</a> or <a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" data-schedule>pick a consultation time</a>.</div>
+  </form>
+
+  <div class="enq-next">
+    <p class="kick">/ What happens next</p>
+    <ol role="list">
+    <li><b>We reply within one business day</b><span>By email or phone, whichever you prefer.</span></li>
+    <li><b>A short conflict check</b><span>Before we discuss the details, we confirm we are free to act for you.</span></li>
+    <li><b>Your first consultation</b><span>A 30-minute call by phone or video, or a meeting at one of our three offices.</span></li>
+    </ol>
+    <p class="enq-conf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="11" width="14" height="9"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Every enquiry is treated confidentially.</p>
+  </div>
+</div>
+
   </div>
 </section>
 </main>

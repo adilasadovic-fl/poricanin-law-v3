@@ -31,6 +31,7 @@ src = pathlib.Path(__file__).parent
 root = src.parent
 assets = src / 'assets'
 partial = {p.stem: p.read_text() for p in (src / 'partials').glob('*.html')}
+partial['cta'] = partial['cta'].replace('{{> contact-form}}', partial['contact-form'])
 pages = sorted((src / 'pages').glob('*.html'))
 page_names = {p.name for p in pages}
 
