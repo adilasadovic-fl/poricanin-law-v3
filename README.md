@@ -10,6 +10,7 @@ Static multi-page site for Poricanin Law. There is no framework, and Vercel serv
 | About us | `src/pages/about.html` | Founder, credentials, firm, team, values, working approach |
 | Practice areas | `src/pages/practice-areas.html` | Six groups; each item opens in place. Generated content, see below |
 | Sectors | `src/pages/sectors.html` | Who we serve and typical matters for each sector |
+| Sector detail pages | `src/pages/sector-*.html` | Healthcare, Home Care, Education, Hospitality, Manufacturing. Content from the matching poricaninlaw.com industry pages, with light copy edits flagged for approval |
 | Results | `src/pages/results.html` | Representative matters and every client testimonial, in full |
 | Insights | `src/pages/insights.html` | Three highlights, then all articles with instant filters |
 | Contact | `src/pages/contact.html` | Contact form (prototype) and the three offices |
