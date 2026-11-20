@@ -441,6 +441,7 @@ a.pa{color:inherit}
 .ph-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,7vw,104px) max(var(--gutter),calc((100vw - var(--wrap))/2 + var(--gutter))) clamp(56px,7vw,96px) clamp(32px,5vw,88px)}
 .ph-text h1{font-size:clamp(38px,4.2vw,62px);font-weight:200;letter-spacing:-.04em;line-height:1.04;margin-top:28px}
 .ph-text h1 .caps{display:block;font-size:.58em;margin-top:12px;letter-spacing:-.01em}
+.ph-text .label{color:var(--green-ink)}
 .ph-text .lead{margin-top:30px;color:var(--muted);font-size:16.5px;max-width:52ch}
 .ph-text .lead+.lead{margin-top:14px}
 .ph-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
@@ -480,6 +481,7 @@ a.pa{color:inherit}
 .creds-band{border-bottom:1px solid var(--line)}
 .creds-row{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line)}
 .creds-row>div{padding:28px clamp(18px,2vw,28px);border-right:1px solid var(--line)}
+.creds-row>div:nth-child(-n+4){border-bottom:1px solid var(--line)}
 .creds-row b{display:block;font-weight:500;font-size:15px;line-height:1.35}
 .creds-row span{display:block;margin-top:6px;font-size:13.5px;color:var(--muted)}
 .firm-band{background:var(--black);color:var(--white);padding:clamp(80px,9vw,124px) 0;position:relative;overflow:hidden}
