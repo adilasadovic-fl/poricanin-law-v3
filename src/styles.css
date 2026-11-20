@@ -687,3 +687,19 @@ a.hl:hover img{filter:grayscale(.1);transform:scale(1.06)}
 @media (max-width:900px){.write-grid{grid-template-columns:1fr}}
 @media (max-width:640px){.uf{grid-template-columns:1fr}.uf-foot .btn{width:100%}}
 @media (prefers-reduced-motion:reduce){.w-ticker-track{animation:none}}
+
+/* ---------- inner page hero, Altufan layout: inset square image left; label top, title middle, text bottom ---------- */
+.page-hero{background:var(--paper);padding:clamp(32px,3.6vw,52px) 0 clamp(48px,5vw,80px)}
+.page-hero .ph-grid{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6.5vw,104px);min-height:0;align-items:stretch}
+.ph-img{aspect-ratio:1/1;min-height:0}
+.ph-img::after{display:none}
+.ph-text{padding:clamp(12px,2.4vw,40px) 0;justify-content:flex-start}
+.ph-text h1{margin:auto 0;padding:32px 0;font-size:clamp(36px,3.8vw,58px)}
+.ph-text .lead{margin-top:0;max-width:48ch}
+.ph-text .lead+.lead{margin-top:14px}
+@media (max-width:900px){
+  .page-hero .ph-grid{grid-template-columns:1fr;gap:28px}
+  .ph-img{aspect-ratio:4/3;min-height:0}
+  .ph-text{padding:0}
+  .ph-text h1{margin:20px 0 22px;padding:0}
+}
