@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Poricanin Law</title>
+<meta name="description" content="Schedule a consultation with Poricanin Law. Offices in New York City, Albany and Buffalo; serving businesses with operations across the United States and internationally.">
+<link rel="canonical" href="https://poricanin-law-v3.vercel.app/contact">
+<meta property="og:title" content="Contact | Poricanin Law">
+<meta property="og:description" content="Schedule a consultation with Poricanin Law. Offices in New York City, Albany and Buffalo; serving businesses with operations across the United States and internationally.">
+<meta property="og:type" content="website">
+<link rel="preload" as="image" href="src/assets/office-nyc.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles.css">
+<script src="src/site.js" defer></script>
+</head>
+<body class="solid-header">
+<a class="skip" href="#main">Skip to content</a>
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Poricanin Law home"><img src="src/assets/poricanin-wordmark-white.png" alt="Poricanin" width="118" height="21"><span>Law</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="about.html">About us</a>
+      <a href="practice-areas.html">Practice areas</a>
+      <a href="sectors.html">Sectors</a>
+      <a href="results.html">Results</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+    <div class="head-right">
+      <a href="https://www.poricaninlaw.com/myaccount/" class="client">Client Area</a>
+      <a href="contact.html" class="btn btn-light">Schedule a consultation</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+  <a href="index.html">Home</a><a href="about.html">About us</a><a href="practice-areas.html">Practice areas</a><a href="sectors.html">Sectors</a><a href="results.html">Results</a><a href="insights.html">Insights</a><a href="contact.html">Contact</a>
+  <a href="https://www.poricaninlaw.com/myaccount/" class="small">Client Area</a>
+  <a href="contact.html" class="btn btn-green">Schedule a consultation</a>
+</nav>
+<main id="top">
+<span id="main"></span>
+<!-- ================= PAGE HERO ================= -->
+<section class="page-hero" aria-labelledby="pageTitle">
+  <div class="ph-grid">
+    <div class="ph-img"><img src="src/assets/office-nyc.webp" alt="" width="640" height="288"><span class="tag-cap"><i></i>Contact</span></div>
+    <div class="ph-text">
+      <span class="label">Contact</span>
+      <h1 id="pageTitle">Schedule a <span class="caps">consultation</span></h1>
+      <p class="lead">Tell us briefly about your business and the matter at hand. We respond within one business day, and every enquiry is treated confidentially.</p>
+      <div class="direct">
+        <a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a>
+        <a href="tel:+15188073458">518.807.3458</a>
+      </div>
+      <p class="book">Prefer to pick a time? <a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" target="_blank" rel="noopener">Book a consultation online <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT (V1 elements restored: write-to-us ticker, consent) ================= -->
+<section class="contact on-page" id="form" aria-labelledby="formTitle">
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Have a question? <em>Write to us.</em></span><span>Have a question? <em>Write to us.</em></span><span>Have a question? <em>Write to us.</em></span><span>Have a question? <em>Write to us.</em></span>
+    </div>
+  </div>
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="label">Write to us</span>
+      <h2 class="thin" id="formTitle">Tell us about your business</h2>
+      <ul class="reassure" role="list">
+        <li><b>A reply within one business day</b>from an attorney, not an automated queue.</li>
+        <li><b>Confidential from the first message</b>Everything you share is treated in confidence.</li>
+        <li><b>A practical next step</b>In the first meeting we assess your situation and outline a way forward.</li>
+      </ul>
+    </div>
+    <!-- PROTOTYPE FORM: not connected to email or a CRM. Submitting validates the fields and then explains how to reach the firm. -->
+    <form id="contactForm" class="reveal" novalidate>
+      <div class="fields">
+        <div class="field"><label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" autocomplete="name" placeholder="Jane Smith" required aria-describedby="e-name"><span class="err" id="e-name">Please enter your name.</span></div>
+        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization" placeholder="Company name"></div>
+        <div class="field"><label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(000) 000-0000" required aria-describedby="e-phone"><span class="err" id="e-phone">Please enter a phone number.</span></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" aria-describedby="e-email"><span class="err" id="e-email">Please enter a valid email address.</span></div>
+        <div class="field full"><label for="f-area">Legal service <span class="req" aria-hidden="true">*</span></label>
+          <select id="f-area" name="service" required aria-describedby="e-area">
+            <option value="" selected disabled>Select a legal service</option>
+            <option>Outside General Counsel &amp; Business Advisory</option>
+            <option>Labor &amp; Employment Law</option>
+            <option>Litigation &amp; Dispute Resolution</option>
+            <option>Regulatory Compliance &amp; Government Investigations</option>
+            <option>Corporate Transactions &amp; Commercial Contracts</option>
+            <option>Workplace Advisory &amp; Risk Management</option>
+            <option>Not sure / other</option>
+          </select><span class="err" id="e-area">Please choose a legal service.</span></div>
+        <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Briefly describe the matter and your timeline."></textarea></div>
+      </div>
+      <label class="consent" id="consentWrap"><input type="checkbox" id="f-consent" name="consent" required aria-describedby="e-consent"> <span>I agree to the <a href="https://www.poricaninlaw.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> and understand that contacting the firm does not create an attorney-client relationship.</span></label>
+      <p class="consent-err" id="e-consent">Please confirm you have read the Privacy Policy.</p>
+      <div class="form-foot">
+        <p>* Required</p>
+        <button type="submit" class="btn">Schedule a consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="form-ok" id="formOk" role="status" tabindex="-1"><b>This form is a preview and is not connected yet, so your message has not been sent.</b> Please email <a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a>, call <a href="tel:+15188073458">518.807.3458</a> or <a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" target="_blank" rel="noopener">book online</a>.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= OFFICES ================= -->
+<section aria-labelledby="officesTitle">
+  <div class="wrap">
+    <div class="office-cards" id="offices">
+      <h2 class="sr-only" id="officesTitle">Our offices</h2>
+      <article class="office-card reveal"><div class="ph"><img src="src/assets/office-nyc.webp" alt="Manhattan skyline, New York City" loading="lazy" decoding="async"></div><b>New York City</b><p>434 W. 33rd Street, 10th Floor<br>New York, NY 10001</p></article>
+      <article class="office-card reveal"><div class="ph"><img src="src/assets/office-albany.webp" alt="Albany, New York" loading="lazy" decoding="async"></div><b>Albany</b><p>90 State Street, Suite 700<br>Albany, NY 12207</p></article>
+      <article class="office-card reveal"><div class="ph"><img src="src/assets/office-buffalo.webp" alt="Buffalo, New York" loading="lazy" decoding="async"></div><b>Buffalo</b><p>50 Fountain Plaza, Suite 1400<br>Buffalo, NY 14202</p></article>
+    </div>
+    <p class="admit" style="border-color:var(--line);color:var(--muted);margin-top:0;margin-bottom:clamp(64px,7vw,96px)"><b style="color:var(--text)">Notices &amp; communications:</b> 52 Madeleine Lane, Glenmont, NY 12077</p>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="index.html" class="logo logo-xl" aria-label="Poricanin Law home"><img src="src/assets/poricanin-wordmark-black.png" alt="Poricanin" width="330" height="59" loading="lazy"><span>Law</span></a>
+      <a href="#top" class="totop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V4M6 10l6-6 6 6"/></svg></a>
+    </div>
+    <div class="footer-main">
+      <div>
+        <h2 class="h5">Contact</h2>
+        <ul><li><a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a></li><li><a href="tel:+15188073458">518.807.3458</a></li><li><a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" target="_blank" rel="noopener">Book a consultation online</a></li></ul>
+      </div>
+      <div><h2 class="h5">Firm</h2><ul><li><a href="about.html">About us</a></li><li><a href="about.html#team">Our people</a></li><li><a href="practice-areas.html">Practice areas</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="results.html">Results</a></li></ul></div>
+      <div><h2 class="h5">Resources</h2><ul><li><a href="insights.html">Insights</a></li><li><a href="https://www.poricaninlaw.com/premium-articles-monthly/">Premium articles</a></li><li><a href="results.html#feedback">Client feedback</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://www.poricaninlaw.com/myaccount/">Client area</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Poricanin Law. All rights reserved. Attorney advertising.</span>
+      <nav aria-label="Legal and social"><a href="https://www.linkedin.com/in/emina-poricanin-54532027/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.facebook.com/poricaninlaw" target="_blank" rel="noopener">Facebook</a><a href="https://www.poricaninlaw.com/privacy-policy/">Privacy policy</a></nav>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

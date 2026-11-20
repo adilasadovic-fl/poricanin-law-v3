@@ -5,456 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Poricanin Law | Legal counsel for businesses</title>
 <meta name="description" content="Poricanin Law provides practical legal advice and ongoing outside general counsel to businesses and their leadership: labor and employment, litigation, regulatory compliance and corporate transactions. Offices in New York City, Albany and Buffalo.">
-<link rel="preload" as="image" href="src/assets/hero-facade.webp" fetchpriority="high" data-linked-only>
+<link rel="canonical" href="https://poricanin-law-v3.vercel.app/">
+<meta property="og:title" content="Poricanin Law | Legal counsel for businesses">
+<meta property="og:description" content="Poricanin Law provides practical legal advice and ongoing outside general counsel to businesses and their leadership: labor and employment, litigation, regulatory compliance and corporate transactions. Offices in New York City, Albany and Buffalo.">
+<meta property="og:type" content="website">
+<link rel="preload" as="image" href="src/assets/hero-facade.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --black:#0A0A0A;
-    --ink:#111111;
-    --white:#FFFFFF;
-    --paper:#F3F3F1;
-    --line:#E2E2DF;
-    --line-dark:#2A2A2A;
-    --text:#1A1A1A;
-    --muted:#5C5F5C;        /* 6.4:1 on white */
-    --muted-dark:#A3A3A0;   /* 7.6:1 on black */
-    --green:#3DCB86;        /* on dark */
-    --green-ink:#1A7A4E;    /* on light, 5.4:1 */
-    --wrap:1320px;
-    --gutter:clamp(16px,3.5vw,40px);
-    --ease:cubic-bezier(.2,.7,.2,1);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--white);color:var(--text);font-family:"Poppins",system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  img{display:block;max-width:100%}
-  a{color:inherit;text-decoration:none}
-  button,input,select,textarea{font:inherit;color:inherit}
-  :focus-visible{outline:2px solid var(--green);outline-offset:3px}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
-  section{position:relative}
-
-  .label{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--text)}
-  .dark .label{color:var(--white)}
-  .thin{font-weight:200;letter-spacing:-.03em;line-height:1.08}
-  .caps{font-weight:500;text-transform:uppercase;letter-spacing:-.01em;line-height:1.05}
-  .green{color:var(--green-ink)}
-  .dark .green{color:var(--green)}
-
-  .btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:0 26px;border:1px solid currentColor;font-size:15px;font-weight:400;transition:background .25s,color .25s,border-color .25s}
-  .btn svg{width:18px;height:18px;transition:transform .25s var(--ease)}
-  .btn:hover svg{transform:translateX(4px)}
-  .btn-light{color:var(--white);border-color:rgba(255,255,255,.7)}
-  .btn-light:hover{background:var(--white);color:var(--black)}
-  .btn-dark{color:var(--text);border-color:var(--text)}
-  .btn-dark:hover{background:var(--black);color:var(--white)}
-  .btn-green{background:var(--green);border-color:var(--green);color:#06140D;font-weight:500}
-  .btn-green:hover{background:#5ADB9B;border-color:#5ADB9B}
-  .link-arrow{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:400;padding:10px 0}
-  .link-arrow svg{width:18px;height:18px;transition:transform .25s var(--ease)}
-  .link-arrow:hover svg{transform:translateX(4px)}
-
-  .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--green);color:#06140D;padding:10px 16px;font-weight:500;transition:top .2s}
-  .skip:focus{top:12px}
-  #main{position:absolute;top:0}
-  /* ---------- header ---------- */
-  .header{position:fixed;inset:0 0 auto;z-index:60;color:var(--white);transition:background .35s,border-color .35s;border-bottom:1px solid rgba(255,255,255,.14)}
-  .header.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:transparent}
-  .header .wrap{height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-  .logo{display:flex;align-items:center;gap:10px}
-  .logo img{height:21px;width:auto}
-  .logo span{font-weight:300;font-size:22px;line-height:1;transform:translateY(1px)}
-  .nav{display:flex;gap:30px;font-size:12.5px;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
-  .nav a{opacity:.85;padding:10px 0;transition:opacity .2s,color .2s}
-  .nav a:hover{opacity:1;color:var(--green)}
-  .head-right{display:flex;align-items:center;gap:22px;font-size:13px}
-  .head-right .client{opacity:.85}
-  .head-right .client:hover{opacity:1}
-  .header .btn{min-height:42px;padding:0 18px;font-size:13px}
-  .menu-btn{display:none;background:none;border:0;width:44px;height:44px;place-items:center;cursor:pointer;color:var(--white)}
-  .mobile-nav{display:none}
-
-  /* ---------- hero ---------- */
-  .hero{height:100vh;height:100svh;min-height:640px;color:var(--white);overflow:hidden;display:flex;align-items:flex-end}
-  .hero-bg{position:absolute;inset:0;background:url("src/assets/hero-facade.webp") center/cover no-repeat;filter:grayscale(.35) contrast(1.05);transform:scale(1.08);animation:heroIn 2.4s var(--ease) forwards}
-  @keyframes heroIn{to{transform:scale(1)}}
-  .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.35) 40%,rgba(10,10,10,.88) 100%)}
-  .hero .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:end;padding-bottom:clamp(48px,8vh,96px)}
-  .hero-copy{display:flex;flex-direction:column;gap:22px}
-  .hero .label{color:var(--green)}
-  .hero h1{font-size:clamp(40px,5.4vw,84px);font-weight:200;letter-spacing:-.04em;line-height:1.04;max-width:15ch}
-  .hero h1 b{font-weight:500;color:var(--green)}
-  .hero-side{display:flex;flex-direction:column;gap:28px;align-items:flex-start;padding-bottom:10px}
-  .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-  .hero-side p{font-size:15px;color:rgba(255,255,255,.86);max-width:44ch}
-  .hero-meta{position:absolute;z-index:2;right:var(--gutter);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;align-items:center}
-  .hero-meta i{width:2px;height:120px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
-  .hero-meta i::after{content:"";position:absolute;left:0;top:0;width:100%;height:40%;background:var(--green);animation:meter 3.2s var(--ease) infinite}
-  @keyframes meter{0%{transform:translateY(-100%)}100%{transform:translateY(260%)}}
-
-  /* ---------- why ---------- */
-  .why{padding:clamp(80px,9vw,130px) 0 clamp(80px,9vw,120px)}
-  .why-head{display:grid;grid-template-columns:1fr 2.6fr;gap:40px;margin-bottom:56px}
-  .why-head .label{font-weight:500}
-  .why-head p{font-size:clamp(24px,2.5vw,34px);font-weight:300;letter-spacing:-.02em;line-height:1.3;max-width:28ch}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,20px)}
-  .card{position:relative;aspect-ratio:3/4;overflow:hidden;color:var(--white);background:var(--black)}
-  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transform:scale(1.02);transition:filter .7s var(--ease),transform 1.2s var(--ease)}
-  .card:hover img{filter:grayscale(.1);transform:scale(1.07)}
-  .card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,10,10,.05) 25%,rgba(10,10,10,.55) 55%,rgba(10,10,10,.94) 100%)}
-  .card .num{position:absolute;z-index:2;top:22px;right:26px;font-size:clamp(40px,4vw,58px);font-weight:200;letter-spacing:-.03em;line-height:1;transition:color .4s}
-  .card:hover .num{color:var(--green)}
-  .card .body{position:absolute;z-index:2;left:clamp(20px,2.2vw,32px);right:clamp(20px,2.2vw,32px);bottom:clamp(22px,2.4vw,34px)}
-  .card h3{font-size:clamp(17px,1.5vw,21px);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.25;margin-bottom:12px}
-  .card p{font-size:14px;color:rgba(255,255,255,.86);max-width:36ch}
-  .card .bar{display:block;width:32px;height:2px;background:var(--green);margin-bottom:18px;transition:width .5s var(--ease)}
-  .card:hover .bar{width:64px}
-
-  /* ---------- band ---------- */
-  .band{background:var(--black);color:var(--white);padding:clamp(80px,9vw,120px) 0}
-  .band-head{text-align:center;font-size:clamp(24px,2.6vw,36px);font-weight:300;letter-spacing:-.02em;line-height:1.3;max-width:30ch;margin:0 auto clamp(56px,6vw,88px)}
-  .band-grid{display:grid;grid-template-columns:1fr 2fr;gap:clamp(32px,5vw,80px);align-items:stretch}
-  .stats{display:flex;flex-direction:column;justify-content:center}
-  .stat{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:26px 0 30px;border-top:1px solid var(--line-dark)}
-  .stat:last-child{border-bottom:1px solid var(--line-dark)}
-  .stat b{font-size:clamp(48px,5vw,72px);font-weight:200;letter-spacing:-.04em;line-height:1}
-  .stat b sup{font-size:.45em;color:var(--green);font-weight:300;vertical-align:top;margin-left:2px}
-  .stat span{font-size:13px;color:var(--muted-dark);text-align:right;padding-top:8px;max-width:20ch}
-  .stat b.word{font-size:clamp(34px,3.4vw,50px);letter-spacing:-.035em}
-  .stat b.word em{font-style:normal;color:var(--green)}
-  .offices-wrap{display:flex;flex-direction:column;gap:14px}
-  .offices-label{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-  .offices-label .label{color:var(--white)}
-  .offices-label span:last-child{font-size:13px;color:var(--muted-dark)}
-  .admit{margin-top:clamp(36px,4vw,56px);padding-top:22px;border-top:1px solid var(--line-dark);font-size:13px;color:var(--muted-dark);max-width:110ch}
-  .admit b{color:var(--white);font-weight:500}
-  .offices{display:grid;grid-template-columns:1fr 1.25fr;grid-template-rows:1fr 1fr;gap:clamp(10px,1.2vw,16px);min-height:520px}
-  .office{position:relative;overflow:hidden;background:#1a1a1a}
-  .office:first-child{grid-row:span 2}
-  .office img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .7s var(--ease),transform 1.2s var(--ease)}
-  .office:hover img{filter:grayscale(0);transform:scale(1.04)}
-  .office::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,10,10,.85))}
-  .office figcaption{position:absolute;z-index:2;left:20px;right:20px;bottom:18px}
-  .office figcaption b{display:block;font-size:17px;font-weight:500}
-  .office figcaption span{font-size:13px;color:rgba(255,255,255,.82)}
-
-  /* ---------- legal services ---------- */
-  .services{border-bottom:1px solid var(--line)}
-  .sec-head{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(24px,5vw,80px);align-items:end;padding:clamp(72px,8vw,112px) 0 clamp(36px,4vw,52px)}
-  .sec-head h2{font-size:clamp(32px,3.4vw,50px);margin-top:20px}
-  .sec-head h2.caps{font-size:clamp(24px,2.3vw,34px);margin-top:10px}
-  .sec-head p{color:var(--muted);max-width:56ch;font-size:16px}
-  .sec-head .key{display:inline-flex;align-items:center;gap:10px;margin-top:18px;font-size:12.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--green-ink)}
-  .sec-head .key::before{content:"";width:24px;height:2px;background:currentColor}
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-  .pa{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(32px,3.4vw,48px) clamp(22px,2.4vw,36px) clamp(28px,3vw,40px);min-height:360px;display:flex;flex-direction:column;position:relative;transition:background .35s}
-  .pa::before{content:"";position:absolute;left:-1px;top:-1px;height:3px;width:calc(100% + 1px);background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
-  .pa:hover{background:var(--paper)}
-  .pa:hover::before{transform:scaleX(1)}
-  .pa .n{font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--green-ink)}
-  .pa h3{font-size:clamp(22px,1.9vw,27px);font-weight:400;letter-spacing:-.02em;line-height:1.18;margin-top:16px;max-width:17ch}
-  .pa p{margin-top:auto;font-size:14.5px;color:var(--muted);padding-top:36px}
-  .svc-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:20px 0 clamp(64px,7vw,96px)}
-  .svc-foot p{font-size:14px;color:var(--muted)}
-  .arrows{display:flex;gap:4px}
-  .arrows button{width:48px;height:48px;background:none;border:0;display:grid;place-items:center;cursor:pointer;transition:color .2s}
-  .arrows button:hover{color:var(--green-ink)}
-  .arrows svg{width:22px;height:22px}
-
-  /* ---------- industries ---------- */
-  .industries{background:var(--paper);padding-bottom:clamp(72px,8vw,112px)}
-  .ind-list{list-style:none;border-top:1px solid var(--line)}
-  .ind{position:relative;border-bottom:1px solid var(--line)}
-  .ind-link{display:grid;grid-template-columns:72px minmax(200px,1fr) 2fr 24px;gap:clamp(16px,3vw,48px);align-items:baseline;padding:clamp(24px,2.6vw,34px) 0}
-  .ind::before{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
-  .ind:hover::before{transform:scaleX(1)}
-  .ind .n{font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--green-ink)}
-  .ind h3{font-size:clamp(24px,2.4vw,36px);font-weight:200;letter-spacing:-.03em;line-height:1.1}
-  .ind p{font-size:15px;color:var(--muted);max-width:62ch}
-  .ind svg{width:20px;height:20px;color:var(--muted);transition:transform .3s var(--ease),color .3s}
-  .ind-link:hover h3{color:var(--green-ink)}
-  .ind h3{transition:color .3s}
-  .ind:hover svg{transform:translateX(4px);color:var(--green-ink)}
-
-  /* ---------- results ---------- */
-  .results{background:var(--black);color:var(--white);padding:clamp(80px,9vw,124px) 0}
-  .results .sec-head{padding-top:0}
-  .results .sec-head p{color:var(--muted-dark)}
-  .results .sec-head .key{color:var(--green)}
-  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,18px)}
-  .res{position:relative;display:flex;flex-direction:column;gap:14px;padding:clamp(26px,2.6vw,36px);border:1px solid var(--line-dark);background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,0) 60%);transition:border-color .35s,transform .35s var(--ease)}
-  .res:hover{border-color:rgba(61,203,134,.55);transform:translateY(-3px)}
-  .res.wide{grid-column:span 2;background:radial-gradient(ellipse 70% 90% at 100% 100%,rgba(31,122,82,.45),transparent 65%),linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,0) 60%)}
-  .res .cat{display:flex;justify-content:space-between;gap:12px;font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dark)}
-  .res .cat b{color:var(--green);font-weight:500}
-  .res h3{font-size:clamp(22px,2vw,28px);font-weight:300;letter-spacing:-.025em;line-height:1.2}
-  .res.wide h3{font-size:clamp(26px,2.8vw,40px);max-width:24ch}
-  .res p{font-size:14.5px;color:rgba(255,255,255,.78);max-width:58ch}
-  .res .out{margin-top:auto;padding-top:18px;border-top:1px solid var(--line-dark);display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:400}
-  .res .out svg{flex:none;width:18px;height:18px;color:var(--green);margin-top:3px}
-  .res .src{display:block;margin-top:4px;font-size:12px;color:var(--muted-dark)}
-  .res-note{margin-top:24px;font-size:12.5px;color:var(--muted-dark)}
-
-  /* ---------- founder ---------- */
-  .founder{background:var(--paper)}
-  .founder-grid{display:grid;grid-template-columns:1fr 1fr;min-height:720px}
-  .founder-text{padding:clamp(72px,8vw,120px) clamp(24px,5vw,80px) clamp(64px,7vw,100px) max(var(--gutter),calc((100vw - var(--wrap))/2 + var(--gutter)));display:flex;flex-direction:column}
-  .founder-text h2{font-size:clamp(34px,3.6vw,52px);margin-top:44px}
-  .founder-text h2.caps{font-size:clamp(24px,2.4vw,34px);margin-top:12px}
-  .founder-text .bio{margin-top:36px;max-width:52ch;color:var(--muted);font-size:16px}
-  .founder-text .bio p+p{margin-top:16px}
-  .creds{list-style:none;margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:0 28px;border-top:1px solid var(--line)}
-  .creds li{padding:14px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--muted);line-height:1.5}
-  .creds li b{display:block;color:var(--text);font-weight:500;font-size:14px}
-  .founder-links{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-  .founder-text .btn{margin-top:auto;align-self:flex-start}
-  .founder-text .spacer{height:44px;flex:none}
-  .founder-img{position:relative;overflow:hidden;background:radial-gradient(ellipse 60% 50% at 55% 40%,rgba(61,203,134,.28),transparent 70%),linear-gradient(170deg,#18241D 0%,#0E1210 55%,#0A0A0A 100%)}
-  .founder-img img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:92%;width:auto;max-width:none;filter:drop-shadow(0 30px 70px rgba(0,0,0,.55))}
-  .founder-img .cap{position:absolute;left:28px;bottom:26px;z-index:2;color:var(--white);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
-  .founder-img .cap i{display:inline-block;width:24px;height:2px;background:var(--green);vertical-align:middle;margin-right:12px}
-
-  /* ---------- testimonials ---------- */
-  .quotes{padding:clamp(80px,9vw,130px) 0}
-  .quotes-grid{display:grid;grid-template-columns:1fr 2.6fr;gap:40px}
-  .quotes-side{display:flex;flex-direction:column;justify-content:space-between;gap:40px}
-  .counter{font-size:14px;color:var(--muted)}
-  .counter b{color:var(--text);font-weight:500}
-  .slides{position:relative;min-height:340px}
-  .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease),visibility .6s}
-  .slide.active{position:relative;opacity:1;visibility:visible;transform:none}
-  .slide blockquote{font-size:clamp(18px,1.75vw,24px);font-weight:300;letter-spacing:-.015em;line-height:1.5}
-  .slide blockquote::before{content:"“";display:block;font-size:72px;line-height:.6;height:34px;color:var(--green-ink);font-weight:300}
-  .slide cite{display:flex;align-items:center;gap:14px;margin-top:32px;font-style:normal;font-size:14px;font-weight:500}
-  .slide cite::before{content:"";width:32px;height:2px;background:var(--green)}
-
-  /* ---------- news & insights ---------- */
-  .insights{background:var(--paper);padding:clamp(80px,9vw,120px) 0}
-  .insights-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(40px,4vw,56px)}
-  .insights-head h2{font-size:clamp(36px,4.2vw,60px);margin-top:16px}
-  .insights-head p{margin-top:18px;color:var(--muted);max-width:52ch}
-  .btn-solid{background:var(--black);color:var(--white);border-color:var(--black)}
-  .btn-solid:hover{background:var(--green-ink);border-color:var(--green-ink)}
-  .news{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,3.5vw,56px);align-items:start}
-  .tags{display:flex;gap:8px;flex-wrap:wrap}
-  .tag{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 11px;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1}
-  .tag svg{width:12px;height:12px}
-  .tag-premium{background:var(--black);color:var(--green)}
-  .tag-free{border:1px solid var(--green-ink);color:var(--green-ink)}
-  .tag-type{background:var(--white);color:var(--muted);font-weight:500;letter-spacing:.04em;text-transform:none;font-size:12.5px;border:1px solid var(--line)}
-  .byline{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--muted)}
-  .byline .av{width:34px;height:34px;border-radius:50%;background:var(--black);color:var(--green);display:grid;place-items:center;font-size:12px;font-weight:600;letter-spacing:.04em;flex:none}
-  .byline .dot{width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.6}
-  /* featured */
-  .feature{display:flex;flex-direction:column;gap:20px}
-  .feature .img{display:block;aspect-ratio:4/3;overflow:hidden;background:#ddd}
-  .feature .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-  .feature:hover .img img{transform:scale(1.04)}
-  .feature h3{font-size:clamp(26px,2.4vw,36px);font-weight:300;letter-spacing:-.025em;line-height:1.16}
-  .feature h3 a{transition:color .2s}
-  .feature h3 a:hover{color:var(--green-ink)}
-  .feature .excerpt{color:var(--muted);font-size:15.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .feature .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:4px}
-  .feature .btn{min-height:46px;padding:0 22px;font-size:14px}
-  /* list */
-  .news-list{display:flex;flex-direction:column}
-  .item{display:grid;grid-template-columns:clamp(150px,13vw,200px) 1fr;gap:clamp(18px,2vw,26px);padding:22px 0;border-top:1px solid var(--line)}
-  .item:first-child{border-top:0;padding-top:0}
-  .item .thumb{display:block;aspect-ratio:7/6;overflow:hidden;background:#ddd;position:relative}
-  .item .thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15);transition:transform 1s var(--ease),filter .5s}
-  .item:hover .thumb img{transform:scale(1.05);filter:none}
-  .item .body{display:flex;flex-direction:column;gap:10px;min-width:0}
-  .item h3{font-size:clamp(17px,1.4vw,20px);font-weight:400;letter-spacing:-.015em;line-height:1.3}
-  .item h3 a:hover{color:var(--green-ink)}
-  .item .excerpt{font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .item .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:auto}
-  .read{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);padding:6px 0;transition:color .2s,text-decoration-color .2s}
-  .read:hover{color:var(--green-ink);text-decoration-color:var(--green-ink)}
-  .read svg{width:14px;height:14px}
-
-  /* ---------- cta ---------- */
-  .cta{min-height:620px;color:var(--white);overflow:hidden;display:flex}
-  .cta-bg{position:absolute;inset:0;background:url("src/assets/city-lights.webp") center 75%/cover no-repeat}
-  .cta::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,10,10,.6),rgba(10,10,10,.35) 50%,rgba(10,10,10,.85))}
-  .cta .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto 1fr auto;padding-top:clamp(56px,7vw,96px);padding-bottom:clamp(56px,7vw,96px)}
-  .cta .note{grid-column:2;font-size:15px;color:rgba(255,255,255,.88);max-width:44ch}
-  .cta h2{grid-column:1;grid-row:3;font-size:clamp(36px,4.4vw,64px);font-weight:200;letter-spacing:-.035em;line-height:1.08}
-  .cta .act{grid-column:2;grid-row:3;align-self:end;display:flex;gap:14px;flex-wrap:wrap}
-
-  /* ---------- contact ---------- */
-  .contact{padding:0 0 clamp(80px,9vw,130px)}
-  .ticker{overflow:hidden;padding:clamp(56px,6vw,88px) 0 clamp(40px,4vw,64px);border-bottom:1px solid var(--line);margin-bottom:clamp(48px,5vw,72px)}
-  .ticker-track{display:flex;width:max-content;animation:ticker 36s linear infinite}
-  .ticker-track span{display:flex;align-items:center;gap:.4em;padding-right:.4em;white-space:nowrap;font-size:clamp(56px,9vw,148px);font-weight:200;letter-spacing:-.05em;line-height:1}
-  .ticker-track span em{font-style:normal;font-weight:500;color:var(--green-ink)}
-  .ticker-track span::after{content:"";width:.14em;height:.14em;border-radius:50%;background:var(--green)}
-  @keyframes ticker{to{transform:translateX(-50%)}}
-  .book{margin-top:28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
-  .book a{display:inline-flex;align-items:center;gap:8px;font-weight:500;color:var(--text);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);padding:6px 0}
-  .book a:hover{color:var(--green-ink);text-decoration-color:var(--green-ink)}
-  .book svg{width:16px;height:16px}
-  .contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(40px,6vw,96px)}
-  .contact-grid>*,.hero .wrap>*,.sec-head>*,.band-grid>*{min-width:0}
-  .direct a{overflow-wrap:anywhere}
-  .contact h2{font-size:clamp(32px,3.4vw,48px);margin:16px 0 22px}
-  .contact .intro{color:var(--muted);max-width:40ch}
-  .direct{margin-top:40px;display:grid;gap:4px}
-  .direct a{font-size:clamp(20px,1.8vw,24px);font-weight:400;letter-spacing:-.01em;padding:6px 0;display:inline-block;transition:color .2s}
-  .direct a:hover{color:var(--green-ink)}
-  .addr{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px 28px;padding-top:28px;border-top:1px solid var(--line)}
-  .addr .h4{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
-  .addr p{font-size:14px;color:var(--muted);line-height:1.6}
-  form .fields{display:grid;grid-template-columns:1fr 1fr;gap:34px 32px}
-  .field{display:flex;flex-direction:column;gap:6px}
-  .field,form .fields>*{min-width:0}
-  .field input,.field select,.field textarea{width:100%;min-width:0}
-  .field select{text-overflow:ellipsis}
-  .field.full{grid-column:1/-1}
-  .field label{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
-  .field label .req{color:var(--green-ink)}
-  .field input,.field select,.field textarea{border:0;border-bottom:1px solid #9C9E9B;background:transparent;padding:12px 0;font-size:clamp(17px,1.4vw,20px);font-weight:300;border-radius:0;-webkit-appearance:none;appearance:none;transition:border-color .2s}
-  .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%231A1A1A' stroke-width='1.5'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;padding-right:24px}
-  .field textarea{min-height:120px;resize:vertical}
-  .field input::placeholder,.field textarea::placeholder{color:#767976}
-  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom:2px solid var(--green-ink);padding-bottom:11px}
-  .field .err{display:none;font-size:13px;color:#B3261E}
-  .field.invalid input,.field.invalid select{border-bottom-color:#B3261E}
-  .field.invalid .err{display:block}
-  .consent{display:flex;align-items:flex-start;gap:12px;margin-top:30px;font-size:14px;color:var(--muted);cursor:pointer}
-  .consent input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;margin-top:1px;border:1px solid #6F726F;display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s}
-  .consent input:checked{background:var(--green-ink);border-color:var(--green-ink)}
-  .consent input:checked::after{content:"";width:10px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
-  .consent a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
-  .consent.invalid input{border-color:#B3261E}
-  .consent-err{display:none;font-size:13px;color:#B3261E;margin:6px 0 0 32px}
-  .consent.invalid+.consent-err{display:block}
-  .form-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:32px}
-  .form-foot p{font-size:13px;color:var(--muted);max-width:44ch}
-  .form-foot .btn{cursor:pointer;background:var(--black);color:var(--white);border-color:var(--black)}
-  .form-foot .btn:hover{background:var(--green-ink);border-color:var(--green-ink)}
-  .form-ok{display:none;margin-top:24px;padding:16px 18px;background:rgba(26,122,78,.08);border-left:2px solid var(--green-ink);font-size:14.5px}
-  .form-ok a{text-decoration:underline;text-underline-offset:3px}
-
-  /* ---------- footer ---------- */
-  .footer{background:var(--paper);padding:clamp(64px,7vw,96px) 0 32px}
-  .footer-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding-bottom:44px;border-bottom:1px solid var(--line)}
-  .footer-top .logo span{color:var(--text)}
-  .logo-xl{gap:clamp(10px,1.2vw,18px)}
-  .logo-xl img{height:clamp(34px,4.6vw,62px)}
-  .logo-xl span{font-size:clamp(36px,4.9vw,66px);font-weight:300;letter-spacing:-.01em;transform:translateY(2px)}
-  .totop{width:48px;height:48px;border:1px solid var(--line);display:grid;place-items:center;transition:background .25s,color .25s}
-  .totop:hover{background:var(--black);color:var(--white)}
-  .totop svg{width:18px;height:18px}
-  .footer-main{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding:48px 0}
-  .footer ul{list-style:none;display:grid;gap:2px}
-  .footer ul a{display:inline-block;padding:7px 0;font-size:14.5px;transition:color .2s}
-  .footer ul a:hover{color:var(--green-ink)}
-  .footer .h5{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-  .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
-  .footer-bottom nav{display:flex;gap:22px}
-  .footer-bottom a{padding:6px 0}
-  .footer-bottom a:hover{color:var(--green-ink)}
-
-  /* ---------- reveal ---------- */
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{animation:none!important;transition:none!important}
-    .reveal{opacity:1;transform:none}
-    .hero-bg{transform:none}
-    .ticker-track{transform:none}
-  }
-
-  /* ---------- responsive ---------- */
-  @media (max-width:1100px){
-    .nav{gap:18px;letter-spacing:.08em;font-size:12px}
-    .head-right .client{display:none}
-    .band-grid{grid-template-columns:1fr}
-    .stats{flex-direction:row}
-    .stat{flex:1;flex-direction:column;border-bottom:1px solid var(--line-dark);padding-right:20px}
-    .stat span{text-align:left;padding-top:0}
-    .svc-grid{grid-template-columns:1fr 1fr}
-    .res-grid{grid-template-columns:1fr 1fr}
-    .res.wide{grid-column:1/-1}
-    .footer-main{grid-template-columns:1fr 1fr}
-    .footer-main>div:first-child{grid-column:1/-1}
-  }
-  @media (max-width:900px){
-    .nav,.head-right{display:none}
-    .menu-btn{display:grid}
-    .mobile-nav{position:fixed;inset:84px 0 0;z-index:59;background:var(--black);padding:16px var(--gutter) 32px;flex-direction:column;overflow:auto}
-    .mobile-nav.open{display:flex}
-    .mobile-nav a{color:var(--white);font-size:24px;font-weight:300;padding:14px 0;border-bottom:1px solid var(--line-dark)}
-    .mobile-nav a.small{font-size:16px;color:var(--muted-dark)}
-    .mobile-nav a.btn-green{margin-top:28px;justify-content:center;color:#06140D;font-size:15px;font-weight:500;border-bottom:0}
-    .hero .wrap{grid-template-columns:1fr;gap:28px}
-    .hero-meta{display:none}
-    .why-head,.quotes-grid,.contact-grid,.sec-head{grid-template-columns:1fr;gap:20px}
-    .cards{grid-template-columns:1fr;gap:14px}
-    .card{aspect-ratio:4/3}
-    .ind-link{grid-template-columns:48px 1fr 20px;row-gap:8px}
-    .ind p{grid-column:2/3}
-    .ind svg{grid-row:1;grid-column:3}
-    .founder-grid{grid-template-columns:1fr}
-    .founder-img{min-height:520px;order:-1}
-    .founder-text{padding:64px var(--gutter)}
-    .news{grid-template-columns:1fr}
-    .cta .wrap{grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:28px}
-    .cta .note,.cta h2,.cta .act{grid-column:1;grid-row:auto}
-    .cta{min-height:auto}
-  }
-  @media (max-width:640px){
-    .stats{flex-direction:column}
-    .stat{flex-direction:row;align-items:center}
-    .offices{grid-template-columns:1fr;grid-template-rows:auto;min-height:0}
-    .office:first-child{grid-row:auto}
-    .office{aspect-ratio:16/10}
-    .svc-grid,.res-grid{grid-template-columns:1fr}
-    .pa{min-height:0}
-    .pa p{padding-top:20px}
-    .creds{grid-template-columns:1fr}
-    form .fields{grid-template-columns:1fr}
-    .addr{grid-template-columns:1fr}
-    .footer-main{grid-template-columns:1fr}
-    .slides{min-height:0}
-    .item{grid-template-columns:112px 1fr;gap:16px}
-    .item .byline>span:first-child,.item .byline .dot{display:none}
-    .byline{white-space:nowrap}
-    .btn{width:100%;justify-content:center}
-    .header .btn,.form-foot .btn{width:auto}
-  }
-</style>
+<link rel="stylesheet" href="src/styles.css">
+<script src="src/site.js" defer></script>
 </head>
-<body>
-
+<body class="">
 <a class="skip" href="#main">Skip to content</a>
 <header class="header" id="header">
   <div class="wrap">
-    <a href="#top" class="logo" aria-label="Poricanin Law home"><img src="src/assets/poricanin-wordmark-white.png" alt="Poricanin" width="118" height="21"><span>Law</span></a>
+    <a href="index.html" class="logo" aria-label="Poricanin Law home"><img src="src/assets/poricanin-wordmark-white.png" alt="Poricanin" width="118" height="21"><span>Law</span></a>
     <nav class="nav" aria-label="Primary">
-      <a href="#why">Our Firm</a>
-      <a href="#services">Legal Services</a>
-      <a href="#industries">Industries</a>
-      <a href="#founder">Our People</a>
-      <a href="#insights">Insights</a>
-      <a href="#contact">Contact</a>
+      <a href="about.html">About us</a>
+      <a href="practice-areas.html">Practice areas</a>
+      <a href="sectors.html">Sectors</a>
+      <a href="results.html">Results</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div class="head-right">
       <a href="https://www.poricaninlaw.com/myaccount/" class="client">Client Area</a>
-      <a href="#contact" class="btn btn-light">Schedule a consultation</a>
+      <a href="contact.html" class="btn btn-light">Schedule a consultation</a>
     </div>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
   </div>
 </header>
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-  <a href="#why">Our Firm</a><a href="#services">Legal Services</a><a href="#industries">Industries</a><a href="#founder">Our People</a><a href="#insights">Insights</a><a href="#contact">Contact</a>
+  <a href="index.html">Home</a><a href="about.html">About us</a><a href="practice-areas.html">Practice areas</a><a href="sectors.html">Sectors</a><a href="results.html">Results</a><a href="insights.html">Insights</a><a href="contact.html">Contact</a>
   <a href="https://www.poricaninlaw.com/myaccount/" class="small">Client Area</a>
-  <a href="#contact" class="btn btn-green">Schedule a consultation</a>
+  <a href="contact.html" class="btn btn-green">Schedule a consultation</a>
 </nav>
-
 <main id="top">
 <span id="main"></span>
 <!-- ================= HERO ================= -->
@@ -469,7 +55,7 @@
       <p>Practical legal advice and ongoing outside general counsel for companies and their leadership. Based in New York, serving businesses with operations across the United States and internationally.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-green">Schedule a consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
-        <a href="#services" class="btn btn-light">Explore our legal services</a>
+        <a href="practice-areas.html" class="btn btn-light">Explore our practice areas</a>
       </div>
     </div>
   </div>
@@ -500,6 +86,7 @@
         <div class="body"><span class="bar"></span><h3>Direct, long-term<br>relationships</h3><p>Many clients rely on us as their ongoing counsel for years. You work directly with your attorney, who responds quickly and explains complex issues in plain terms.</p></div>
       </article>
     </div>
+    <div class="sec-more reveal"><a href="about.html" class="link-arrow">More about the firm <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
@@ -514,7 +101,7 @@
         <div class="stat"><b class="word">U.S. <em>&amp;</em> abroad</b><span>Clients with national and international operations</span></div>
       </div>
       <div class="offices-wrap reveal">
-        <div class="offices-label"><span class="label">Our offices</span><span>Three offices across New York State</span></div>
+        <div class="offices-label"><span class="label">Our offices</span><a href="contact.html#offices" class="link-arrow light">Visit our offices <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
         <div class="offices">
           <figure class="office"><img src="src/assets/office-buffalo.webp" alt="Buffalo, New York" loading="lazy" decoding="async"><figcaption><b>Buffalo</b><span>50 Fountain Plaza, Suite 1400</span></figcaption></figure>
           <figure class="office"><img src="src/assets/office-nyc.webp" alt="Manhattan skyline, New York City" loading="lazy" decoding="async"><figcaption><b>New York City</b><span>434 W. 33rd Street, 10th Floor</span></figcaption></figure>
@@ -531,7 +118,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <span class="label">Legal services</span>
+        <span class="label">Practice areas</span>
         <h2 class="thin">What we do for</h2>
         <h2 class="caps">your business</h2>
       </div>
@@ -541,16 +128,16 @@
       </div>
     </div>
     <div class="svc-grid">
-      <article class="pa reveal"><span class="n">01</span><h3>Outside General Counsel &amp; Business Advisory</h3><p>Ongoing counsel for owners, executives and boards on day-to-day operational challenges, corporate governance, contract drafting and negotiation, and strategic decisions. We serve as chief legal counsel for organizations that need an experienced advisor without an in-house legal department.</p></article>
-      <article class="pa reveal"><span class="n">02</span><h3>Labor &amp; Employment Law</h3><p>Management-side counsel on federal and state employment law, including wage and hour, leave and accommodation, discrimination and harassment, and union relations and collective bargaining. Representation before the EEOC, NLRB, Division of Human Rights and Departments of Labor.</p></article>
-      <article class="pa reveal"><span class="n">03</span><h3>Litigation &amp; Dispute Resolution</h3><p>Defense of businesses in commercial and employment disputes, including class action wage and hour litigation in federal and state court and grievance arbitrations. Our focus is a resolution that makes business sense, whether that is a negotiated settlement or a defended case.</p></article>
-      <article class="pa reveal"><span class="n">04</span><h3>Regulatory Compliance &amp; Government Investigations</h3><p>Representation in government audits and investigations, including Department of Health, Office of Medicaid Inspector General, Attorney General and Department of Labor matters. We also handle licensing and compliance programs, plus Medicare and Medicaid requirements for healthcare providers.</p></article>
-      <article class="pa reveal"><span class="n">05</span><h3>Corporate Transactions &amp; Commercial Contracts</h3><p>Business formation and restructuring, acquisitions and sales, due diligence and joint ventures, with particular depth in regulated healthcare transactions. We also negotiate vendor, commercial and executive employment contracts.</p></article>
-      <article class="pa reveal"><span class="n">06</span><h3>Workplace Advisory &amp; Risk Management</h3><p>Preventive, hands-on support that keeps workplace issues from becoming claims: handbooks and policies, independent contractor classification, internal investigations and manager training. We also run privileged self-audits that find and fix problems before an agency does.</p></article>
+      <a href="practice-areas.html#general-counsel" class="pa reveal"><h3>Outside General Counsel &amp; Business Advisory</h3><p>Ongoing counsel for owners, executives and boards on day-to-day operational challenges, corporate governance, contract drafting and negotiation, and strategic decisions. We serve as chief legal counsel for organizations that need an experienced advisor without an in-house legal department.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+      <a href="practice-areas.html#labor-employment" class="pa reveal"><h3>Labor &amp; Employment Law</h3><p>Management-side counsel on federal and state employment law, including wage and hour, leave and accommodation, discrimination and harassment, and union relations and collective bargaining. Representation before the EEOC, NLRB, Division of Human Rights and Departments of Labor.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+      <a href="practice-areas.html#litigation" class="pa reveal"><h3>Litigation &amp; Dispute Resolution</h3><p>Defense of businesses in commercial and employment disputes, including class action wage and hour litigation in federal and state court and grievance arbitrations. Our focus is a resolution that makes business sense, whether that is a negotiated settlement or a defended case.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+      <a href="practice-areas.html#regulatory" class="pa reveal"><h3>Regulatory Compliance &amp; Government Investigations</h3><p>Representation in government audits and investigations, including Department of Health, Office of Medicaid Inspector General, Attorney General and Department of Labor matters. We also handle licensing and compliance programs, plus Medicare and Medicaid requirements for healthcare providers.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+      <a href="practice-areas.html#corporate" class="pa reveal"><h3>Corporate Transactions &amp; Commercial Contracts</h3><p>Business formation and restructuring, acquisitions and sales, due diligence and joint ventures, with particular depth in regulated healthcare transactions. We also negotiate vendor, commercial and executive employment contracts.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
+      <a href="practice-areas.html#workplace-advisory" class="pa reveal"><h3>Workplace Advisory &amp; Risk Management</h3><p>Preventive, hands-on support that keeps workplace issues from becoming claims: handbooks and policies, independent contractor classification, internal investigations and manager training. We also run privileged self-audits that find and fix problems before an agency does.</p><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></a>
     </div>
     <div class="svc-foot">
-      <p>Not sure which service fits? Tell us about the issue and we will point you in the right direction.</p>
-      <a href="#contact" class="link-arrow">Schedule a consultation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      <p>Not sure which area fits? <a href="#contact" class="inline">Tell us about the issue</a> and we will point you in the right direction.</p>
+      <a href="practice-areas.html" class="link-arrow">All practice areas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
@@ -560,9 +147,9 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <span class="label">Industries</span>
+        <span class="label">Sectors</span>
         <h2 class="thin">Who we serve</h2>
-        <h2 class="caps">Industry experience</h2>
+        <h2 class="caps">Sector experience</h2>
       </div>
       <div>
         <p>We represent businesses across many sectors, with particular depth in highly regulated industries where legal, operational and workforce compliance determine long-term success.</p>
@@ -570,12 +157,13 @@
       </div>
     </div>
     <ul class="ind-list" role="list">
-      <li class="ind reveal"><a href="https://www.poricaninlaw.com/health-care/" class="ind-link"><span class="n">01</span><h3>Healthcare</h3><p>Providers facing constant regulatory change, consolidation and reimbursement pressure, from formation and licensure to governance, audits, litigation and legislative advocacy.</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></li>
-      <li class="ind reveal"><a href="https://www.poricaninlaw.com/home-care/" class="ind-link"><span class="n">02</span><h3>Home Care</h3><p>Home care providers nationally on licensing, Medicaid and Medicare compliance, acquisitions, wage parity and labor matters, and government audits.</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></li>
-      <li class="ind reveal"><a href="https://www.poricaninlaw.com/educational-institutions/" class="ind-link"><span class="n">03</span><h3>Educational Institutions</h3><p>Public and private schools and colleges on labor relations and collective bargaining, board governance, student matters, special education disputes and litigation defense.</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></li>
-      <li class="ind reveal"><a href="https://www.poricaninlaw.com/hospitality/" class="ind-link"><span class="n">04</span><h3>Hospitality</h3><p>Restaurant and hospitality operators, from business formation and liquor licensing to real estate and the employment claims that come with a large workforce.</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></li>
-      <li class="ind reveal"><a href="https://www.poricaninlaw.com/manufacturing/" class="ind-link"><span class="n">05</span><h3>Manufacturing</h3><p>Manufacturers and start-ups, including businesses with operations overseas, on corporate structure, acquisitions, contracts, labor relations, OSHA and agency audits, and intellectual property.</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></li>
+      <li class="ind reveal"><a href="sectors.html#healthcare" class="ind-link"><span class="n">01</span><h3>Healthcare</h3><p>Providers facing constant regulatory change, consolidation and reimbursement pressure, from formation and licensure to governance, audits, litigation and legislative advocacy.</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></li>
+      <li class="ind reveal"><a href="sectors.html#home-care" class="ind-link"><span class="n">02</span><h3>Home Care</h3><p>Home care providers nationally on licensing, Medicaid and Medicare compliance, acquisitions, wage parity and labor matters, and government audits.</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></li>
+      <li class="ind reveal"><a href="sectors.html#education" class="ind-link"><span class="n">03</span><h3>Educational Institutions</h3><p>Public and private schools and colleges on labor relations and collective bargaining, board governance, student matters, special education disputes and litigation defense.</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></li>
+      <li class="ind reveal"><a href="sectors.html#hospitality" class="ind-link"><span class="n">04</span><h3>Hospitality</h3><p>Restaurant and hospitality operators, from business formation and liquor licensing to real estate and the employment claims that come with a large workforce.</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></li>
+      <li class="ind reveal"><a href="sectors.html#manufacturing" class="ind-link"><span class="n">05</span><h3>Manufacturing</h3><p>Manufacturers and start-ups, including businesses with operations overseas, on corporate structure, acquisitions, contracts, labor relations, OSHA and agency audits, and intellectual property.</p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></li>
     </ul>
+    <div class="sec-more reveal"><a href="sectors.html" class="link-arrow">All sectors we serve <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
@@ -625,7 +213,7 @@
         <div class="out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg><span>Issues identified and addressed before closing. <span class="src">Source: client account</span></span></div>
       </article>
     </div>
-    <p class="res-note">Prior results do not guarantee a similar outcome. Attorney advertising.</p>
+    <div class="res-foot"><p class="res-note">Prior results do not guarantee a similar outcome. Attorney advertising.</p><a href="results.html" class="link-arrow light">All results and client feedback <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
@@ -648,8 +236,8 @@
       </ul>
       <div class="spacer"></div>
       <div class="founder-links">
-        <a href="https://www.poricaninlaw.com/emina-poricanin/" class="btn btn-dark">Read Emina's biography <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
-        <a href="https://www.poricaninlaw.com/about-us/" class="link-arrow">Meet our people <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        <a href="about.html#founder" class="btn btn-dark">Read Emina's biography <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        <a href="about.html#team" class="link-arrow">Meet our people <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <div class="founder-img">
@@ -670,7 +258,7 @@
           <button type="button" id="qPrev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12H4M10 6l-6 6 6 6"/></svg></button>
           <button type="button" id="qNext" aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
         </div>
-        <a href="https://www.poricaninlaw.com/client-feedback/" class="link-arrow" style="margin-top:12px">All client feedback <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        <a href="results.html#feedback" class="link-arrow" style="margin-top:12px">All client feedback <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
       </div>
     </div>
     <div class="slides reveal" id="slides">
@@ -695,7 +283,7 @@
         <h2 class="thin">Analysis, legal updates<br>and practical guidance</h2>
         <p>The firm publishes analysis, legal updates and practical guidance that help business leaders anticipate regulatory and workplace change, and act on it.</p>
       </div>
-      <a href="https://www.poricaninlaw.com/articles/" class="btn btn-solid">View all insights <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      <a href="insights.html" class="btn btn-solid">View all insights <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
     </div>
     <div class="news">
       <article class="feature reveal">
@@ -814,7 +402,7 @@
 <footer class="footer">
   <div class="wrap">
     <div class="footer-top">
-      <a href="#top" class="logo logo-xl" aria-label="Poricanin Law home"><img src="src/assets/poricanin-wordmark-black.png" alt="Poricanin" width="330" height="59" loading="lazy"><span>Law</span></a>
+      <a href="index.html" class="logo logo-xl" aria-label="Poricanin Law home"><img src="src/assets/poricanin-wordmark-black.png" alt="Poricanin" width="330" height="59" loading="lazy"><span>Law</span></a>
       <a href="#top" class="totop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V4M6 10l6-6 6 6"/></svg></a>
     </div>
     <div class="footer-main">
@@ -822,8 +410,8 @@
         <h2 class="h5">Contact</h2>
         <ul><li><a href="mailto:hello@poricaninlaw.com">hello@poricaninlaw.com</a></li><li><a href="tel:+15188073458">518.807.3458</a></li><li><a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" target="_blank" rel="noopener">Book a consultation online</a></li></ul>
       </div>
-      <div><h2 class="h5">Firm</h2><ul><li><a href="#why">Our firm</a></li><li><a href="#services">Legal services</a></li><li><a href="#industries">Industries</a></li><li><a href="#results">Results</a></li><li><a href="https://www.poricaninlaw.com/about-us/">Our people</a></li></ul></div>
-      <div><h2 class="h5">Resources</h2><ul><li><a href="https://www.poricaninlaw.com/articles/">Insights</a></li><li><a href="https://www.poricaninlaw.com/premium-articles-monthly/">Premium articles</a></li><li><a href="https://www.poricaninlaw.com/client-feedback/">Client feedback</a></li><li><a href="https://www.poricaninlaw.com/myaccount/">Client area</a></li></ul></div>
+      <div><h2 class="h5">Firm</h2><ul><li><a href="about.html">About us</a></li><li><a href="about.html#team">Our people</a></li><li><a href="practice-areas.html">Practice areas</a></li><li><a href="sectors.html">Sectors</a></li><li><a href="results.html">Results</a></li></ul></div>
+      <div><h2 class="h5">Resources</h2><ul><li><a href="insights.html">Insights</a></li><li><a href="https://www.poricaninlaw.com/premium-articles-monthly/">Premium articles</a></li><li><a href="results.html#feedback">Client feedback</a></li><li><a href="contact.html">Contact</a></li><li><a href="https://www.poricaninlaw.com/myaccount/">Client area</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Poricanin Law. All rights reserved. Attorney advertising.</span>
@@ -831,37 +419,5 @@
     </div>
   </div>
 </footer>
-
-<script>
-  const header=document.getElementById('header');
-  const onScroll=()=>header.classList.toggle('scrolled',scrollY>40);onScroll();addEventListener('scroll',onScroll,{passive:true});
-
-  const mb=document.getElementById('menuBtn'),mn=document.getElementById('mobileNav');
-  const setMenu=o=>{mn.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';if(o)header.classList.add('scrolled');else onScroll()};
-  mb.addEventListener('click',()=>setMenu(!mn.classList.contains('open')));
-  mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
-  addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
-
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // testimonials
-  const slides=[...document.querySelectorAll('.slide')];let qi=0;
-  document.getElementById('qAll').textContent=String(slides.length).padStart(2,'0');
-  const show=i=>{qi=(i+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('active',k===qi));document.getElementById('qNow').textContent=String(qi+1).padStart(2,'0')};
-  document.getElementById('qPrev').onclick=()=>show(qi-1);document.getElementById('qNext').onclick=()=>show(qi+1);
-
-  // contact form (prototype: validates, then explains that nothing was sent)
-  const form=document.getElementById('contactForm'),consent=document.getElementById('f-consent'),cw=document.getElementById('consentWrap');
-  form.addEventListener('submit',e=>{
-    e.preventDefault();let first=null;
-    form.querySelectorAll('.field').forEach(f=>{const el=f.querySelector('input,select,textarea');const bad=el&&!el.checkValidity();f.classList.toggle('invalid',bad);el&&el.setAttribute('aria-invalid',bad);if(bad&&!first)first=el});
-    const cBad=!consent.checked;cw.classList.toggle('invalid',cBad);consent.setAttribute('aria-invalid',cBad);if(cBad&&!first)first=consent;
-    if(first){first.focus();return}
-    const ok=document.getElementById('formOk');ok.style.display='block';ok.focus();
-  });
-  form.addEventListener('input',e=>{const f=e.target.closest('.field');if(f&&e.target.checkValidity())f.classList.remove('invalid')});
-  consent.addEventListener('change',()=>{if(consent.checked)cw.classList.remove('invalid')});
-</script>
 </body>
 </html>

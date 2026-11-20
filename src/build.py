@@ -1,50 +1,76 @@
-"""Build the homepage from src/template.html.
+"""Build the Poricanin Law site from src/.
 
-Writes two files to the repository root:
-  index.html       the page Vercel serves. Images are linked from src/assets/ so the
-                   browser can lazy-load and cache them.
-  standalone.html  the same page with every image inlined as a data URI, for sharing as a
-                   single file (opens anywhere, including offline). Heavier: use for review only.
+    python3 src/build.py
 
-Placeholders in the template look like {{file.webp}} and refer to files in src/assets/.
-Elements marked data-linked-only (e.g. the hero preload hint) are dropped from standalone.html.
+Every file in src/pages/ becomes a page in the repository root (src/pages/about.html -> about.html).
+A page starts with one line of settings, for example:
+
+    <!--page {"title": "About us | Poricanin Law", "description": "...", "nav": "about"} -->
+
+Settings: title, description, nav (which header link is marked as current), preload (an image in
+src/assets to preload, for pages whose first screen is that image), bodyclass, cta (false to leave
+out the shared closing call-to-action).
+
+Each page is wrapped as: partials/head.html, partials/header.html, <main> page </main>,
+partials/cta.html, partials/footer.html.
+
+Placeholders:
+    {{image.webp}}   a file in src/assets/  ->  src/assets/image.webp
+    {{=name}}        a page setting (title, description, ...)
+    {{nav:key}}      becomes aria-current="page" on the link for the current page
+
+The build stops with an error if a page refers to a missing image or to a page that does not exist.
 """
-import base64
+import json
 import pathlib
 import re
+import sys
 
-here = pathlib.Path(__file__).parent
-root = here.parent
-assets = here / 'assets'
-mime = {'.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml'}
-template = (here / 'template.html').read_text()
-placeholder = re.compile(r'\{\{([\w.-]+)\}\}')
+src = pathlib.Path(__file__).parent
+root = src.parent
+assets = src / 'assets'
+partial = {p.stem: p.read_text() for p in (src / 'partials').glob('*.html')}
+pages = sorted((src / 'pages').glob('*.html'))
+page_names = {p.name for p in pages}
 
-missing = sorted({m for m in placeholder.findall(template) if not (assets / m).is_file()})
-if missing:
-    raise SystemExit(f'Missing assets: {", ".join(missing)}')
+IMAGE = re.compile(r'\{\{([\w./-]+\.(?:webp|png|jpg|svg))\}\}')
+problems = []
+total = 0
 
+for page in pages:
+    text = page.read_text()
+    first, _, body = text.partition('\n')
+    m = re.fullmatch(r'<!--page (\{.*\}) -->', first.strip())
+    if not m:
+        sys.exit(f'{page.name}: first line must be <!--page {{...}} -->')
+    meta = {'bodyclass': '', 'preload': '', 'cta': True, 'nav': ''}
+    meta.update(json.loads(m.group(1)))
+    meta['path'] = '' if page.stem == 'index' else page.stem
+    if meta['preload']:
+        meta['preload'] = f'<link rel="preload" as="image" href="src/assets/{meta["preload"]}" fetchpriority="high">'
 
-def linked(m):
-    return f'src/assets/{m.group(1)}'
+    html = (partial['head'] + partial['header'] + '<main id="top">\n<span id="main"></span>\n' + body.strip() + '\n'
+            + (partial['cta'] if meta['cta'] else '') + '</main>\n\n' + partial['footer'])
 
+    html = re.sub(r'\{\{nav:(\w+)\}\}', lambda n: ' aria-current="page"' if n.group(1) == meta['nav'] else '', html)
+    html = re.sub(r'\{\{=(\w+)\}\}', lambda n: str(meta.get(n.group(1), '')), html)
 
-def inline(m):
-    f = assets / m.group(1)
-    return f'data:{mime[f.suffix]};base64,' + base64.b64encode(f.read_bytes()).decode()
+    for name in set(IMAGE.findall(html)):
+        if not (assets / name).is_file():
+            problems.append(f'{page.name}: missing image {name}')
+    html = IMAGE.sub(lambda n: f'src/assets/{n.group(1)}', html)
 
+    for href in set(re.findall(r'href="([\w-]+\.html)(?:#[\w-]+)?"', html)):
+        if href not in page_names:
+            problems.append(f'{page.name}: link to missing page {href}')
+    leftover = re.findall(r'\{\{[^}]*\}\}', html)
+    if leftover:
+        problems.append(f'{page.name}: unreplaced placeholders {sorted(set(leftover))}')
 
-page = placeholder.sub(linked, template)
-(root / 'index.html').write_text(page)
+    (root / page.name).write_text(html)
+    total += len(html)
+    print(f'{page.name:22} {len(html) // 1024:4} KB')
 
-standalone = re.sub(r'^.*data-linked-only.*\n', '', template, flags=re.M)
-standalone = placeholder.sub(inline, standalone)
-(root / 'standalone.html').write_text(standalone)
-
-used = set(placeholder.findall(template))
-weight = sum((assets / f).stat().st_size for f in used)
-print(f'index.html       {len(page) // 1024} KB (+ {len(used)} linked images, {weight // 1024} KB)')
-print(f'standalone.html  {len(standalone) // 1024} KB')
-unused = sorted(p.name for p in assets.iterdir() if p.name not in used)
-if unused:
-    print('Unused assets:', ', '.join(unused))
+if problems:
+    sys.exit('\n'.join(['Build problems:'] + problems))
+print(f'{len(pages)} pages, {total // 1024} KB of HTML')
