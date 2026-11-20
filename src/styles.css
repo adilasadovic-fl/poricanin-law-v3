@@ -76,7 +76,9 @@
   .hero h1{font-size:clamp(40px,5.4vw,84px);font-weight:200;letter-spacing:-.04em;line-height:1.04;max-width:15ch}
   .hero h1 b{font-weight:500;color:var(--green)}
   .hero-side{display:flex;flex-direction:column;gap:28px;align-items:flex-start;padding-bottom:10px}
-  .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-actions{display:flex;gap:10px;flex-wrap:wrap;max-width:100%}
+  .hero-actions .btn{flex:1 1 auto;width:auto;justify-content:center;gap:10px;padding:0 20px;white-space:nowrap}
+  @media (min-width:901px) and (max-width:1400px){.hero .wrap{grid-template-columns:1.2fr 1fr}}
   .hero-side p{font-size:15px;color:rgba(255,255,255,.86);max-width:44ch}
   .hero-meta{position:absolute;z-index:2;right:var(--gutter);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;align-items:center}
   .hero-meta i{width:2px;height:120px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
