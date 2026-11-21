@@ -69,7 +69,9 @@
     }));
     const q = $('#insSearch');
     q.addEventListener('input', () => { state.q = q.value.trim().toLowerCase(); apply(); });
-    apply();
+    const pre = new URLSearchParams(location.search).get('topic');
+    const preBtn = pre && $$('[data-filter="topic"]').find(b => b.dataset.value === pre);
+    if (preBtn) preBtn.click(); else apply();
   }
 
   // contact form, V1 style (prototype: validates, then says plainly that nothing was sent)

@@ -709,6 +709,22 @@ a.hl:hover img{filter:grayscale(.1);transform:scale(1.06)}
 .matter-list{list-style:none;counter-reset:m;columns:2;column-gap:clamp(28px,4vw,64px)}
 .matter-list li{counter-increment:m;break-inside:avoid;display:grid;grid-template-columns:44px 1fr;gap:8px;padding:18px 0;border-top:1px solid var(--line-dark);font-size:15px;color:rgba(255,255,255,.85);line-height:1.55}
 .matter-list li::before{content:counter(m,decimal-leading-zero);font-size:12px;font-weight:500;letter-spacing:.12em;color:var(--green);padding-top:3px}
+.sd-related{background:var(--paper);padding:clamp(72px,8vw,112px) 0}
+.rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,24px)}
+.rel-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);transition:border-color .3s}
+.rel-card:hover{border-color:var(--green-ink)}
+.rel-card .thumb{display:block;position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--paper)}
+.rel-card .thumb img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15);transition:transform 1s var(--ease),filter .5s}
+.rel-card:hover .thumb img{transform:scale(1.05);filter:none}
+.rel-card .thumb .cat{position:absolute;top:10px;right:10px;z-index:1;padding:4px 8px;background:var(--white);color:var(--text);font-size:10.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;line-height:1.2}
+.rel-card .body{flex:1;display:flex;flex-direction:column;gap:12px;padding:clamp(20px,2vw,28px)}
+.rel-card h3{font-size:clamp(18px,1.45vw,21px);font-weight:400;letter-spacing:-.015em;line-height:1.3}
+.rel-card h3 a:hover{color:var(--green-ink)}
+.rel-card .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:6px}
+.rel-card .byline>span:first-child,.rel-card .byline .dot{display:none}
+.rel-foot{display:flex;justify-content:flex-end;margin-top:clamp(28px,3vw,40px)}
+@media (max-width:900px){.rel-grid{grid-template-columns:1fr}.rel-card{display:grid;grid-template-columns:minmax(120px,38%) 1fr}.rel-card .thumb{aspect-ratio:auto;min-height:100%}}
+@media (max-width:520px){.rel-card{grid-template-columns:1fr}.rel-card .thumb{aspect-ratio:16/10}}
 .sd-next .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding-top:clamp(40px,4vw,56px);padding-bottom:clamp(40px,4vw,56px);border-bottom:1px solid var(--line)}
 .sd-next a{display:flex;flex-direction:column;gap:4px;padding:8px 0}
 .sd-next span{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
