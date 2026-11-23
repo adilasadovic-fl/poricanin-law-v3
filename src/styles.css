@@ -50,7 +50,7 @@
   #main{position:absolute;top:0}
   /* ---------- header ---------- */
   .header{position:fixed;inset:0 0 auto;z-index:60;color:var(--white);transition:background .35s,border-color .35s;border-bottom:1px solid rgba(255,255,255,.14)}
-  .header.scrolled{background:rgba(10,10,10,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:transparent}
+  .header.scrolled,.solid-header .header{background:var(--black);border-bottom-color:transparent}
   .header .wrap{height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px}
   .logo{display:flex;align-items:center;gap:10px}
   .logo img{height:21px;width:auto}
