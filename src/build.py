@@ -20,6 +20,7 @@ Placeholders:
     {{=name}}        a page setting (title, description, ...)
     {{nav:key}}      becomes aria-current="page" on the link for the current page
     {{insights:topic}}  the three newest insights with data-topic="topic" in src/pages/insights.html, as cards
+    {{insights:topic:title start}}  the same, leaving out the insight whose data-title starts with the given text
 
 The build stops with an error if a page refers to a missing image or to a page that does not exist.
 """
@@ -36,12 +37,12 @@ partial['cta'] = partial['cta'].replace('{{> contact-form}}', partial['contact-f
 pages = sorted((src / 'pages').glob('*.html'))
 page_names = {p.name for p in pages}
 
-INSIGHT = re.compile(r'<article class="ins-row"[^>]*data-topic="([\w-]+)"[^>]*>(.*?)</article>', re.S)
+INSIGHT = re.compile(r'<article class="ins-row"[^>]*data-topic="([\w-]+)"[^>]*data-title="([^"]*)"[^>]*>(.*?)</article>', re.S)
 insight_rows = INSIGHT.findall((src / 'pages' / 'insights.html').read_text())
 
 
-def insight_cards(topic, n=3):
-    rows = [body for t, body in insight_rows if t == topic][:n]
+def insight_cards(topic, skip='', n=3):
+    rows = [body for t, title, body in insight_rows if t == topic and not (skip and title.startswith(skip))][:n]
     if not rows:
         sys.exit(f'no insights with topic {topic}')
     return ''.join(f'<article class="rel-card reveal">{body}</article>' for body in rows)
@@ -67,7 +68,7 @@ for page in pages:
     html = (partial['head'] + partial['header'] + '<main id="top">\n<span id="main"></span>\n' + body.strip() + '\n'
             + (partial['cta'] if meta['cta'] else '') + '</main>\n\n' + partial['footer'].replace('</body>', partial['scheduler'] + '</body>'))
 
-    html = re.sub(r'\{\{insights:([\w-]+)\}\}', lambda n: insight_cards(n.group(1)), html)
+    html = re.sub(r'\{\{insights:([\w-]+)(?::([^}]+))?\}\}', lambda n: insight_cards(n.group(1), n.group(2) or ''), html)
     html = re.sub(r'\{\{nav:(\w+)\}\}', lambda n: ' aria-current="page"' if n.group(1) == meta['nav'] else '', html)
     html = re.sub(r'\{\{=(\w+)\}\}', lambda n: str(meta.get(n.group(1), '')), html)
 

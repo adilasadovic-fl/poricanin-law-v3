@@ -181,3 +181,23 @@
     });
   }
 })();
+
+/* ---------- Article and podcast templates: share links, copy link, "On this page" highlight ---------- */
+(function () {
+  const url = location.href.split('#')[0];
+  document.querySelectorAll('[data-share="linkedin"]').forEach(a => { a.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url); });
+  document.querySelectorAll('[data-share="email"]').forEach(a => { a.href += (a.href.includes('?') ? '&' : '?') + 'body=' + encodeURIComponent(url); });
+  document.querySelectorAll('[data-copy-link]').forEach(b => b.addEventListener('click', async () => {
+    const note = b.closest('.art-share').querySelector('.copy-note');
+    try { await navigator.clipboard.writeText(url); note.textContent = 'Link copied'; }
+    catch (e) { note.textContent = 'Copy the address from your browser bar'; }
+    setTimeout(() => { note.textContent = ''; }, 2500);
+  }));
+  const toc = [...document.querySelectorAll('.art-toc a')];
+  if (!toc.length || !('IntersectionObserver' in window)) return;
+  const byId = new Map(toc.map(a => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { toc.forEach(a => a.classList.remove('is-active')); byId.get(en.target.id)?.classList.add('is-active'); } });
+  }, { rootMargin: '-120px 0px -65% 0px' });
+  byId.forEach((a, id) => { const h = document.getElementById(id); if (h) io.observe(h); });
+})();
