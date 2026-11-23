@@ -1197,7 +1197,16 @@ html.sched-lock{overflow:hidden}
 @media (max-width:1100px){
   .art-layout{grid-template-columns:minmax(0,840px)}
   .art-layout-gap{display:none}
-  .art-rail{position:static;order:2;margin:0 0 clamp(56px,7vw,88px);padding:28px;background:var(--paper)}
+  .art-rail{position:static;order:2;margin:0 0 clamp(56px,7vw,88px)}
+  .art-rail .art-aside-h{font-size:12px;font-weight:500;letter-spacing:.16em;color:var(--text);margin-bottom:0}
+  .art-rail p.art-aside-h:only-of-type,.art-rail .art-rail-t{margin:16px 0 clamp(24px,3vw,36px);font-size:clamp(32px,3.4vw,50px);font-weight:200;letter-spacing:-.03em;line-height:1.15;text-transform:none;color:var(--text)}
+  .art-rail p.art-aside-h:only-of-type{margin-top:0}
+  .art-rail ol{border-left:0;border-bottom:1px solid var(--line)}
+  .art-rail .ch,.art-rail .ch.is-on{display:block;margin:0;padding:18px 0;border:0;border-top:1px solid var(--line);font-size:16px;color:var(--text)}
+  .art-rail .ch .ch-t{display:block;margin-bottom:4px;font-size:12px}
+  .art-rail a.ch:hover{border-top-color:var(--line)}
+  .art-rail a.ch:hover span:last-child{text-decoration:underline;text-underline-offset:3px}
+  .art-rail .link-arrow{margin-top:28px;font-size:15px}
   .art-top .art-rail{margin-top:clamp(40px,5vw,56px)}
 }
 @media (max-width:640px){
