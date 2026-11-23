@@ -21,9 +21,12 @@ Placeholders:
     {{nav:key}}      becomes aria-current="page" on the link for the current page
     {{insights:topic}}  the three newest insights with data-topic="topic" in src/pages/insights.html, as cards
     {{insights:topic:title start}}  the same, leaving out the insight whose data-title starts with the given text
+    {{latest:page.html}}  the four newest insights in src/pages/insights.html as a list for the article left column,
+                          leaving out the insight that links to page.html
 
 The build stops with an error if a page refers to a missing image or to a page that does not exist.
 """
+import hashlib
 import json
 import pathlib
 import re
@@ -33,6 +36,10 @@ src = pathlib.Path(__file__).parent
 root = src.parent
 assets = src / 'assets'
 partial = {p.stem: p.read_text() for p in (src / 'partials').glob('*.html')}
+# version the stylesheet and script by content so browsers fetch them again after every change
+for name in ('styles.css', 'site.js'):
+    version = hashlib.md5((src / name).read_bytes()).hexdigest()[:8]
+    partial['head'] = partial['head'].replace(f'"src/{name}"', f'"src/{name}?v={version}"')
 partial['cta'] = partial['cta'].replace('{{> contact-form}}', partial['contact-form'])
 pages = sorted((src / 'pages').glob('*.html'))
 page_names = {p.name for p in pages}
@@ -46,6 +53,16 @@ def insight_cards(topic, skip='', n=3):
     if not rows:
         sys.exit(f'no insights with topic {topic}')
     return ''.join(f'<article class="rel-card reveal">{body}</article>' for body in rows)
+
+
+def latest_list(skip, n=4):
+    out = []
+    for _, _, body in insight_rows:
+        link = re.search(r'<h3><a href="([^"]+)">(.*?)</a>', body, re.S)
+        date = re.search(r'<time[^>]*>(.*?)</time>', body).group(1)
+        if link.group(1) != skip:
+            out.append(f'<li><a class="ch" href="{link.group(1)}"><span class="ch-t">{date.rsplit(",", 1)[0]}</span><span>{link.group(2)}</span></a></li>')
+    return ''.join(out[:n])
 
 
 IMAGE = re.compile(r'\{\{([\w./-]+\.(?:webp|png|jpg|svg))\}\}')
@@ -69,6 +86,7 @@ for page in pages:
             + (partial['cta'] if meta['cta'] else '') + '</main>\n\n' + partial['footer'].replace('</body>', partial['scheduler'] + '</body>'))
 
     html = re.sub(r'\{\{insights:([\w-]+)(?::([^}]+))?\}\}', lambda n: insight_cards(n.group(1), n.group(2) or ''), html)
+    html = re.sub(r'\{\{latest:([\w.-]+)\}\}', lambda n: latest_list(n.group(1)), html)
     html = re.sub(r'\{\{nav:(\w+)\}\}', lambda n: ' aria-current="page"' if n.group(1) == meta['nav'] else '', html)
     html = re.sub(r'\{\{=(\w+)\}\}', lambda n: str(meta.get(n.group(1), '')), html)
 

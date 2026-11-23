@@ -1,73 +1,68 @@
 <!--page {"title": "Hire First, Document Later? Every Medicaid Hour May Be at Risk | Poricanin Law", "description": "Premium insight: why undocumented caregiver qualifications, screenings and clearances can put every Medicaid claim at risk of recoupment.", "nav": "insights", "bodyclass": "solid-header", "preload": "article-medicaid-hour.webp"} -->
 <!-- ================= ARTICLE TEMPLATE: premium article (signed out) =================
-     Same head, image and aside as the free article. Readers who are not subscribed see the opening paragraph
-     (the public teaser from poricaninlaw.com), a fade, and the subscription panel. Signed-in subscribers get the
-     free-article layout with the full text.
-     TO CONFIRM WITH EMINA: the three subscriber benefits and the button targets (they point to the current site). -->
-<article class="art art-premium" aria-labelledby="pageTitle">
-  <header class="art-head">
-    <div class="wrap art-grid">
-      <div class="art-col">
-        <p class="label art-crumb"><a href="insights.html" class="crumb">Insights</a> · <a href="insights.html?topic=home-care" class="crumb">Home Care</a></p>
-        <div class="tags"><span class="tag tag-premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Premium</span><span class="tag tag-type">Article</span></div>
+     Same layout as the free article (article.html). Readers who are not subscribed see the opening paragraph
+     (the public teaser from poricaninlaw.com) fading out under a "Keep reading" panel with Get access now / Log in.
+     Wording and price come from the current poricaninlaw.com subscription page. Signed-in subscribers get the
+     free-article layout with the full text. -->
+<article class="art art-d art-premium" aria-labelledby="pageTitle">
+  <div class="wrap art-top">
+    <nav class="art-crumbs" aria-label="Breadcrumb"><a href="insights.html">Insights</a><span aria-hidden="true">›</span><a href="insights.html?topic=home-care">Home Care</a><span aria-hidden="true">›</span><span class="cur" aria-current="page">Hire First, Document Later? Every Medicaid Hour May Be at Risk</span></nav>
+    <div class="art-layout">
+      <!-- LEFT COLUMN: latest insights, filled in by the build from insights.html (the page named after "latest:" is left out).
+     For an article in a series, replace the <nav> with:
+       <nav class="pod-ch art-rail" aria-labelledby="railTitle">
+         <p class="art-aside-h">Part of the series</p>
+         <p class="art-rail-t" id="railTitle">Series name</p>
+         <ol role="list">
+           <li><a class="ch is-on" href="…" aria-current="page"><span class="ch-t">Part 1</span><span>Title of part 1</span></a></li>
+           <li><a class="ch" href="…"><span class="ch-t">Part 2</span><span>Title of part 2</span></a></li>
+           <li><span class="ch is-soon"><span class="ch-t">Part 3</span><span>Coming soon</span></span></li>
+         </ol>
+       </nav> -->
+      <nav class="pod-ch art-rail" aria-labelledby="railTitle">
+        <p class="art-aside-h" id="railTitle">Latest insights</p>
+        <ol role="list">{{latest:article-premium.html}}</ol>
+        <a href="insights.html" class="link-arrow">All insights <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      </nav>
+      <div class="art-intro">
+        <div class="art-tagrow"><span class="label">Home Care</span><span class="tag tag-premium"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Premium</span><span class="tag tag-type">Article</span></div>
         <h1 id="pageTitle">Hire First, Document Later? Every Medicaid Hour May Be at Risk</h1>
-        <div class="art-meta">
-          <div class="byline"><span class="av" aria-hidden="true">EP</span><span class="by-name">Emina Poricanin</span><span class="dot"></span><time datetime="2026-09-01">Sep 1, 2026</time><span class="dot"></span><span>For subscribers</span></div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <div class="wrap art-grid art-main">
-    <aside class="art-aside" aria-label="Article tools">
-      <div class="art-aside-note">
-        <p class="art-aside-h">Premium insight</p>
-        <p>In-depth analysis for providers and employers, written by our attorneys.</p>
-      </div>
-      <div class="art-share">
-        <p class="art-aside-h">Share</p>
-        <div class="art-share-row">
+        <p class="art-dek">Why undocumented caregiver qualifications, screenings and clearances can put every Medicaid claim at risk of recoupment.</p>
+        <div class="art-auth"><span class="av" aria-hidden="true">EP</span><p><b>Emina Poricanin</b><br><time datetime="2026-09-01">Sep 1, 2026</time></p></div>
+        <div class="art-actions"><span>For subscribers</span><div class="art-share"><div class="art-share-row">
           <a href="https://www.linkedin.com/sharing/share-offsite/?url=" class="share-btn" target="_blank" rel="noopener" data-share="linkedin" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.74 0-2 1.35-2 2.75V21h-4z"/></svg></a>
           <a href="mailto:?subject=Hire First, Document Later? Every Medicaid Hour May Be at Risk" class="share-btn" data-share="email" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 7 8.5-7"/></svg></a>
           <button type="button" class="share-btn" data-copy-link aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg></button>
+        </div><p class="copy-note" role="status" aria-live="polite"></p></div></div>
+        <figure class="art-fig art-media"><img src="{{article-medicaid-hour.webp}}" alt="" width="1200" height="675" fetchpriority="high"></figure>
+        <div class="art-gate">
+          <div class="prose art-teaser"><p class="lede">A home care agency cannot send a caregiver into a Medicaid recipient’s home and finish the caregiver’s personnel file later. If the required qualifications, screenings, and clearances were not documented before the caregiver began providing services, the Medicaid claims associated with that caregiver may be subject to recoupment.</p></div>
+          <div class="art-fade" aria-hidden="true"></div>
         </div>
-        <p class="copy-note" role="status" aria-live="polite"></p>
-      </div>
-    </aside>
-
-    <div class="art-col">
-      <figure class="art-fig"><img src="{{article-medicaid-hour.webp}}" alt="" width="1200" height="675" fetchpriority="high"></figure>
-      <div class="prose prose-teaser">
-        <p class="lede">A home care agency cannot send a caregiver into a Medicaid recipient’s home and finish the caregiver’s personnel file later. If the required qualifications, screenings, and clearances were not documented before the caregiver began providing services, the Medicaid claims associated with that caregiver may be subject to recoupment.</p>
-      </div>
-      <section class="paywall" aria-labelledby="payTitle">
-        <div class="paywall-top">
-          <span class="tag tag-premium-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Premium</span>
-          <h2 id="payTitle">Continue reading with Premium Insights</h2>
-          <p>Weekly analysis of developments that affect providers and employers, from the attorneys who advise on them.</p>
-        </div>
-        <ul class="paywall-list" role="list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>The full text of every Premium article</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>New analysis by email each week</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>The archive of past Premium insights</span></li>
-        </ul>
-        <div class="paywall-actions">
-          <a href="https://www.poricaninlaw.com/premium-articles-monthly/" class="btn btn-green">Subscribe to Premium Insights <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
-          <p class="paywall-signin">Already a subscriber? <a href="https://www.poricaninlaw.com/myaccount/">Sign in</a></p>
+        <section class="art-wall" aria-labelledby="payTitle">
+          <span class="art-wall-lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+          <h2 id="payTitle">Keep reading</h2>
+          <p>Purchase a <b>monthly subscription</b> to read the full article and every Premium Article.</p>
+          <div class="art-wall-btns">
+            <a href="https://www.poricaninlaw.com/premium-articles-monthly/" class="btn btn-green">Get access now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+            <a href="https://www.poricaninlaw.com/myaccount/" class="btn btn-outline">Log in</a>
+          </div>
+          <p class="art-wall-price">$30.00/month, billed annually</p>
+          <p class="art-wall-signin">Already purchased a Premium Articles subscription? <a href="https://www.poricaninlaw.com/myaccount/">Log in here</a> to access Premium Articles.</p>
+        </section>
+        <div class="art-end">
+          <p class="art-disc">This article is for general information only and is not legal advice. Reading it does not create an attorney-client relationship. Attorney advertising.</p>
+          <section class="art-writer" aria-labelledby="writerName">
+        <img class="art-writer-photo" src="{{emina-portrait.webp}}" alt="" width="72" height="72" loading="lazy">
+        <div>
+          <h2 class="art-writer-name" id="writerName">Written by Emina Poricanin</h2>
+          <a href="about.html#team" class="art-writer-team">Read more about our team</a>
+          <p class="art-writer-bio">Emina has advised employers for almost 20 years. Before founding Poricanin Law, she was an equity partner in the Labor and Employment division of an AmLaw 200 international law firm.</p>
+          <a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" class="link-arrow art-writer-talk" data-schedule>Questions about this article? Talk to us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
         </div>
       </section>
-      <p class="art-disc">This article is for general information only and is not legal advice. Reading it does not create an attorney-client relationship. Attorney advertising.</p>
-      <aside class="art-author" aria-label="About the author">
-      <span class="av av-lg" aria-hidden="true">EP</span>
-      <div>
-        <p class="art-author-name">Emina Poricanin</p>
-        <p class="art-author-bio">Emina has advised employers for almost 20 years. Before founding Poricanin Law, she was an equity partner in the Labor and Employment division of an AmLaw 200 international law firm.</p>
-        <div class="art-author-links">
-          <a href="about.html#founder" class="link-arrow">Read Emina's biography <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
-          <a href="https://outlook.office.com/book/ConsultationMeeting@poricaninlaw.com/" class="link-arrow" data-schedule>Need advice on this now? Talk to us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
         </div>
       </div>
-    </aside>
     </div>
   </div>
 </article>
