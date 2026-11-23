@@ -710,6 +710,8 @@ a.hl:hover img{filter:grayscale(.1);transform:scale(1.06)}
 .matter-list li{counter-increment:m;break-inside:avoid;display:grid;grid-template-columns:44px 1fr;gap:8px;padding:18px 0;border-top:1px solid var(--line-dark);font-size:15px;color:rgba(255,255,255,.85);line-height:1.55}
 .matter-list li::before{content:counter(m,decimal-leading-zero);font-size:12px;font-weight:500;letter-spacing:.12em;color:var(--green);padding-top:3px}
 .sd-related{background:var(--paper);padding:clamp(72px,8vw,112px) 0}
+.sd-related .sd-head{display:block}
+.sd-related .sd-head h2{margin-top:16px;font-size:clamp(32px,3.4vw,50px)}
 .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,24px)}
 .rel-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);transition:border-color .3s}
 .rel-card:hover{border-color:var(--green-ink)}
